@@ -94,10 +94,14 @@ class SignUpForm extends React.Component {
 }
 
 const SignUpLink = () => {
-  <p>
-    Don't have an account?
-    <Link to={routes.SIGN_UP}> Sign Up </Link>
-  </p>;
+    return(
+        <div>
+            <p>
+                Don't have an account?
+                <Link to={routes.SIGN_UP}> Sign Up </Link>
+            </p>;
+        </div>
+    )
 };
 
 export default withRouter(SignUpPage);
