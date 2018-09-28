@@ -13,25 +13,14 @@ import AccountPage from './AccountPage';
 
 
 import * as routes from '../constants/routes'
+import  withAuthentication from './withAuthentication'; 
 
-class App extends Component{
-    constructor(props){
-        super(props); 
-        this.state = {
-            authUser: null
-        }
-    }
 
-    componentDidMount = () => {
-        firebase.auth.onAuthStateChanged(authUser => {
-            authUser ? this.setState({ authUser }) : this.setState({ authUser: null });
-        })
-    }   
-
-    render(){
+const App = () => {
+    
     return (
         <div>
-            <Navigation authUser = {this.state.authUser} />
+            <Navigation  />
             <Route exact path = {routes.LANDING} component = {LandingPage} />
             <Route path = {routes.SIGN_UP} component = {SignUpPage} />
             <Route path = {routes.SIGN_IN} component = {SignInPage} />
@@ -42,9 +31,8 @@ class App extends Component{
     )
 }
 
-} 
     
     
 
 
-export default App;
+export default withAuthentication(App);
