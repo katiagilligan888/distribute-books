@@ -1,5 +1,7 @@
 import React from "react";
 
+import withAuthorization from './withAuthorization';
+
 const HomePage = () => {
   return (
     <div>
@@ -8,4 +10,6 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+const authCondition = (authUser) => !!authUser
+
+export default withAuthorization(authCondition)(HomePage);
