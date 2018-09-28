@@ -3,11 +3,13 @@ import { Link, withRouter } from "react-router-dom";
 
 import * as routes from "../constants/routes";
 import { auth } from "../firebase"; 
+import bg from "../background.jpg"; 
+
+import { Button } from 'react-materialize'
 
 const SignUpPage = ({history}) => {
   return (
-    <div>
-      <h1>Sign Up</h1>
+    <div className = "sign-up-page" >
       <SignUpForm history = {history} />
     </div>
   );
@@ -58,14 +60,17 @@ class SignUpForm extends React.Component {
 
     const isInvalid = passwordOne !== passwordTwo || passwordOne === '' || email === '' || username === ''; 
     return (
-        <div>
+        <div className = "sign-up-form">
+        <div className = 'form'>
+        <h1>Distribute Books</h1>
+        <h2>Create a New Account</h2>
     <form onSubmit={this.onSubmitHandler}>
         <input 
             value = {username} 
             name = "username" 
             onChange = {this.onChangeHandler} 
             type = "text" 
-            placeholder = "Username" />
+            placeholder = "Full Name" />
          <input 
             value = {email} 
             name = "email" 
@@ -84,10 +89,11 @@ class SignUpForm extends React.Component {
             onChange = {this.onChangeHandler} 
             type = "password" 
             placeholder = "Confirm Password" />
-        <button disabled = {isInvalid} type = "submit"> Sign Up
-        </button>
+        <Button disabled = {isInvalid} type = "submit"> Sign Up
+        </Button>
         {error && <p>{error.message}</p>}
      </form>;
+     </div>
      </div>
      )
   }
