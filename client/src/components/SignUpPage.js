@@ -92,7 +92,7 @@ class SignUpForm extends React.Component {
         <Button disabled = {isInvalid} type = "submit"> Sign Up
         </Button>
         {error && <p>{error.message}</p>}
-     </form>;
+     </form>
      </div>
      </div>
      )
@@ -105,7 +105,7 @@ const SignUpLink = () => {
             <p>
                 Don't have an account?
                 <Link to={routes.SIGN_UP}> Sign Up </Link>
-            </p>;
+            </p>
         </div>
     )
 };

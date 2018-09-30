@@ -5,13 +5,11 @@ import { SignUpLink } from './SignUpPage';
 import { PasswordForgetLink } from './PasswordForget'; 
 import { auth } from '../firebase';
 import * as routes from '../constants/routes';
+import { Button } from 'react-materialize'; 
 
 const SignInPage = ({ history }) =>
-  <div>
-    <h1>Sign In</h1>
+  <div className = "sign-in-page">
     <SignInForm history={history} />
-    <PasswordForgetLink />
-    <SignUpLink />
   </div>
 
 
@@ -68,7 +66,10 @@ class SignInForm extends Component {
       email === '';
 
     return (
-      <form onSubmit={this.onSubmitHandler}>
+      <div className = "sign-in-form">
+      <form  className = "form" onSubmit={this.onSubmitHandler}>
+      <h1>Distribute Books </h1>
+      <h2>Sign In</h2>
         <input
           value={email}
           onChange={this.onChangeHandler}
@@ -83,12 +84,16 @@ class SignInForm extends Component {
           name = "password"
           placeholder="Password"
         />
-        <button disabled={isInvalid} type="submit">
+        <Button className = "button-sign-in" disabled={isInvalid} type="submit">
           Sign In
-        </button>
+        </Button>
 
         { error && <p>{error.message}</p> }
+        
       </form>
+      <PasswordForgetLink />
+      <SignUpLink />
+      </div>
     );
   }
 }

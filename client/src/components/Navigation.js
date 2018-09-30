@@ -35,13 +35,10 @@ const NavigationAuth = () => {
 
 const NavigationNonAuth = () => {
   return (
-    <div>
+    <div className = "nav">
       <ul>
         <li>
           <Link to={routes.SIGN_IN}>Sign In</Link>
-        </li>
-        <li>
-          <Link to={routes.LANDING}>Landing</Link>
         </li>
       </ul>
     </div>
