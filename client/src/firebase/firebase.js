@@ -1,6 +1,6 @@
 // Holds all configuration and instantiates Firebase here 
 
-import firebase from 'firebase/app'; 
+import firebase from 'firebase'; 
 import 'firebase/auth'; 
 
 const config = {
@@ -18,8 +18,10 @@ const config = {
       firebase.initializeApp(config)
   }
 
+  const db = firebase.database();
   const auth = firebase.auth(); 
   
   export {
+      db,
       auth, 
   }

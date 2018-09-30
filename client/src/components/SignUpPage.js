@@ -2,7 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 
 import * as routes from "../constants/routes";
-import { auth } from "../firebase"; 
+import { auth, db  } from "../firebase"; 
 import bg from "../background.jpg"; 
 
 import { Button } from 'react-materialize'
@@ -39,10 +39,15 @@ class SignUpForm extends React.Component {
     const { username, email, passwordOne, error } = this.state;
 
     auth.doCreateUserWithEmailAndPassword(email, passwordOne).then(authUser => {
-        this.setState({
-            ...INITIAL_STATE
-        })
-        this.props.history.push(routes.HOME); 
+        // Create user in database
+        db.doCreateUser(authUser.user.uid, username, email)
+          .then(() => {
+            this.setState({ ...INITIAL_STATE });
+            this.props.history.push(routes.HOME);
+          })
+          .catch(error => {
+            this.setState({error});
+          });
     }).catch(err => {
         this.setState({
             error: err
