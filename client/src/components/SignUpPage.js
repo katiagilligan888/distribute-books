@@ -20,6 +20,8 @@ const INITIAL_STATE = {
     passwordOne: '',
     passwordTwo: '', 
     error: null,
+    temple: '', 
+    city: ''
 }
 
 class SignUpForm extends React.Component {
@@ -36,11 +38,11 @@ class SignUpForm extends React.Component {
 
   onSubmitHandler = event => {
    
-    const { username, email, passwordOne, error } = this.state;
+    const { username, email, passwordOne, error, temple, city } = this.state;
 
     auth.doCreateUserWithEmailAndPassword(email, passwordOne).then(authUser => {
         // Create user in database
-        db.doCreateUser(authUser.user.uid, username, email)
+        db.doCreateUser(authUser.user.uid, username, email, temple, city)
           .then(() => {
             this.setState({ ...INITIAL_STATE });
             this.props.history.push(routes.HOME);
@@ -61,9 +63,9 @@ class SignUpForm extends React.Component {
 
   render() {
 
-    const { username, email, passwordOne, passwordTwo, error } = this.state
+    const { username, email, passwordOne, passwordTwo, error, temple, city } = this.state
 
-    const isInvalid = passwordOne !== passwordTwo || passwordOne === '' || email === '' || username === ''; 
+    const isInvalid = passwordOne !== passwordTwo || passwordOne === '' || email === '' || username === '' || temple === '';  
     return (
         <div className = "sign-up-form">
         <div className = 'form'>
@@ -82,6 +84,18 @@ class SignUpForm extends React.Component {
             onChange = {this.onChangeHandler} 
             type = "text" 
             placeholder = "Email Address" />
+        <input 
+            value = {temple} 
+            name = "temple" 
+            onChange = {this.onChangeHandler} 
+            type = "text" 
+            placeholder = "Temple" />
+        <input 
+            value = {city} 
+            name = "city" 
+            onChange = {this.onChangeHandler} 
+            type = "text" 
+            placeholder = "City" />
         <input 
             value = {passwordOne} 
             name = "passwordOne" 
