@@ -13,7 +13,8 @@ export const onceGetUsers = () =>
   db.ref('users').once('value');
 
 export const doCreateBook  = (id, date, distributionType, numberDistributors, bookTitle, bookLanguage, bookNumber) => 
-    db.ref(`book-distributions/${id}`).set({
+    db.ref(`book-distributions/${id}/${date}/${bookTitle}`).set({
+        id,
         date, 
         distributionType, 
         numberDistributors,

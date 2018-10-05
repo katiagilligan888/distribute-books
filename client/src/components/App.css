@@ -7,12 +7,11 @@ html {
 body{
   margin:0; 
   padding: 0; 
-  background-color: #3D4849; 
 }
 
 .sign-up-page{
   width: 100%;
-  height: 95vh; 
+  height: 100vh; 
   margin: 0; 
   padding: 0; 
   background-image: url("https://c1.staticflickr.com/4/3252/2877304479_7078df5f31_b.jpg");
@@ -24,10 +23,10 @@ body{
 
 .sign-up-form, .sign-in-form {
   background-color: #F9F9F9;
-  height: 99vh; 
-  width: 42%; 
+  height: 500px;  
+  width: 60%; 
   margin: 0 auto; 
-  margin-top: 70px;
+  margin-top: 10px;
   border-radius: 10px; 
   padding: 0px; 
   border: 5px solid #3D4849; 
@@ -61,29 +60,44 @@ input::placeholder {
 
 /* Nav CSS Styling  */
 
-.nav ul{
-  margin-right: 3%; 
-  display: flex; 
-  flex-direction: row-reverse; 
+.nav{
+  border-bottom: 2px solid black;
 }
 
-.nav ul li a {
-  text-decoration: none; 
-  color: white; 
+.nav ul{
+  padding: 0; 
+  margin: 0 3%; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
 }
 
 .nav ul li a:hover{
   color: lightgrey; 
 }
 
+.nav h2{
+  margin: 0; 
+  padding: 0; 
+  margin-bottom: 10px; 
+}
+
+.nav h2 a {
+  font-size: 20px; 
+  font-weight: bold;
+  font-family: 'Bai Jamjuree', sans-serif;
+  color: black;
+ 
+}
+
 /* Sign In Page CSS */
 
 .sign-in-page {
   width:100%; 
-  height: 87vh; 
+  height: 86vh; 
   margin: 0;
   padding: 0; 
-  background-image: url('https://bestwallpapers.co/wp-content/uploads/2018/05/lotus-flower-wallpaper-hd-desktop-background.jpg'); 
+  background-image: url('https://cdn4.vectorstock.com/i/1000x1000/15/93/background-design-with-peacock-feathers-vector-7421593.jpg'); 
   background-size: cover; 
   display:flex; 
   justify-content: center; 
@@ -100,4 +114,15 @@ input::placeholder {
 
 .button-sign-in {
   margin-bottom: 20px; 
+}
+
+/* Landing Page Css */
+
+.landing-page{
+  width:100%; 
+  height: 86vh; 
+  margin: 0;
+  padding: 0; 
+  background-image: url('http://3.bp.blogspot.com/-RS0tnDE5kjs/TiqFQ37jhgI/AAAAAAAAAA0/VkGcV3L-1XU/s1600/new+paint+copy.jpg'); 
+  background-size: cover; 
 }

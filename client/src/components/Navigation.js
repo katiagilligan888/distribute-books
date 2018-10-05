@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SignOutButton from "./SignOut";
 import * as routes from "../constants/routes";
 import AuthUserContext from "./AuthUserContext";
+import {Button} from 'react-materialize'; 
 
 const Navigation = () => {
   return (
@@ -16,10 +17,10 @@ const Navigation = () => {
 
 const NavigationAuth = () => {
   return (
-    <div>
+    <div className = "nav-auth">
       <ul>
         <li>
-          <Link to={routes.LANDING}>Landing</Link>
+          <h1><Link to={routes.LANDING}>Distribute Books</Link></h1>
         </li>
         <li>
           <Link to={routes.HOME}>Home</Link>
@@ -27,8 +28,11 @@ const NavigationAuth = () => {
         <li>
           <Link to={routes.ACCOUNT}>Account</Link>
         </li>
-        <SignOutButton />
+        <li>
+          <Link to={routes.BOOK_FORM}>Book Form</Link>
+        </li>
       </ul>
+      <SignOutButton />
     </div>
   );
 };
@@ -38,7 +42,10 @@ const NavigationNonAuth = () => {
     <div className = "nav">
       <ul>
         <li>
-          <Link to={routes.SIGN_IN}>Sign In</Link>
+          <h2><Link to = {routes.LANDING}> Distribute Books</Link> </h2>
+          </li>
+        <li>
+          <Link to={routes.SIGN_IN}><Button>Sign In</Button></Link>
         </li>
       </ul>
     </div>

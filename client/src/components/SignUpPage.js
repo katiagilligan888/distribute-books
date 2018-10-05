@@ -5,7 +5,7 @@ import * as routes from "../constants/routes";
 import { auth, db  } from "../firebase"; 
 import bg from "../background.jpg"; 
 
-import { Button } from 'react-materialize'
+import { Button, Input, Row } from 'react-materialize'
 
 const SignUpPage = ({history}) => {
   return (
@@ -72,45 +72,54 @@ class SignUpForm extends React.Component {
         <h1>Distribute Books</h1>
         <h2>Create a New Account</h2>
     <form onSubmit={this.onSubmitHandler}>
-        <input 
+    <Row>
+        <Input 
+            s = {6}
             value = {username} 
             name = "username" 
             onChange = {this.onChangeHandler} 
             type = "text" 
             placeholder = "Full Name" />
-         <input 
+         <Input 
+            s = {6}
             value = {email} 
             name = "email" 
             onChange = {this.onChangeHandler} 
             type = "text" 
             placeholder = "Email Address" />
-        <input 
+        <Input 
+            s = {6}
             value = {temple} 
             name = "temple" 
             onChange = {this.onChangeHandler} 
             type = "text" 
             placeholder = "Temple" />
-        <input 
+        <Input 
+            s = {6}
             value = {city} 
             name = "city" 
             onChange = {this.onChangeHandler} 
             type = "text" 
             placeholder = "City" />
-        <input 
+        <Input 
+            s = {6}
             value = {passwordOne} 
             name = "passwordOne" 
             onChange = {this.onChangeHandler} 
             type = "password" 
             placeholder = "Password" />
-        <input 
+        <Input 
+            s = {6}
             value = {passwordTwo} 
             name = "passwordTwo" 
             onChange = {this.onChangeHandler} 
             type = "password" 
             placeholder = "Confirm Password" />
+            </Row>
+        {error && <p>{error.message}</p>}
         <Button disabled = {isInvalid} type = "submit"> Sign Up
         </Button>
-        {error && <p>{error.message}</p>}
+        
      </form>
      </div>
      </div>

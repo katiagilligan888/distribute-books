@@ -50,19 +50,19 @@ class BookForm extends React.Component{
             <h1> Book Form </h1>
             <h2> Instructions: Fill out the form with the information about the latest booksale </h2>
             <form onSubmit = {this.onSubmitHandler}>
-                <Input name = "date" type = "date" onChange = {this.onChangeHandler} label = "Date" />
+                <Input  value = {this.state.date} name = "date" type = "date" onChange = {this.onChangeHandler} label = "Date" />
                 <label for= 'distributionType'>Type of Book Distribution </label>
-                <select name ="distributionType" className="browser-default" onChange = {this.onChangeHandler}>
+                <select value = {this.state.distributionType} name ="distributionType" className="browser-default" onChange = {this.onChangeHandler}>
                     <option value = "" disabled selected>Choose Your Distribution Type </option>
                     <option value = "option 1"> Option 1 </option>
                     <option value = "option 2"> Option 2</option>
                     <option value = "option 3"> Option 3 </option>
                     <option value = "option 4"> Option 4 </option>
                 </select>
-                <Input name ="numberDistributors" type = "number" onChange = {this.onChangeHandler} label = "Number of Distributors" />
-                <Input name = "bookTitle" type = "text" onChange = {this.onChangeHandler} label = "Book Title" />
-                <Input name = "bookLanguage" type = "text" onChange = {this.onChangeHandler} label = "Book Language" />
-                <Input name = "bookNumber" type = "number" onChange = {this.onChangeHandler} label = "Number of Books" />
+                <Input value = {this.state.numberDistributors} name ="numberDistributors" type = "number" onChange = {this.onChangeHandler} label = "Number of Distributors" />
+                <Input value = {this.state.bookTitle} name = "bookTitle" type = "text" onChange = {this.onChangeHandler} label = "Book Title" />
+                <Input value = {this.state.bookLanguage} name = "bookLanguage" type = "text" onChange = {this.onChangeHandler} label = "Book Language" />
+                <Input value = {this.state.bookNumber} name = "bookNumber" type = "number" onChange = {this.onChangeHandler} label = "Number of Books" />
                 <Button type = "submit">Add Book Data</Button>
             </form>
             </div>
