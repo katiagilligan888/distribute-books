@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Button } from "react-materialize";
 
 import { auth } from "../firebase";
 import * as routes from "../constants/routes";
 
 const PasswordForgetPage = () => {
   return (
-    <div>
-      <h1>Forgot Password </h1>
+    <div className="forgot-password">
       <PasswordForgetForm />
     </div>
   );
@@ -52,7 +52,8 @@ class PasswordForgetForm extends React.Component {
     const isInvalid = email === "";
 
     return (
-      <div>
+      <div className="forgot-password-form">
+        <h1>Forgot Password </h1>
         <form onSubmit={this.onSubmitHandler}>
           <input
             onChange={this.onChangeHandler}
@@ -60,10 +61,10 @@ class PasswordForgetForm extends React.Component {
             value={email}
             placeholder="Email Address"
           />
-          <button disabled={isInvalid} type="submit">
+          <Button disabled={isInvalid} type="submit">
             {" "}
             Reset my Password{" "}
-          </button>
+          </Button>
 
           {error && <p>{error.message}</p>}
         </form>
@@ -75,16 +76,13 @@ class PasswordForgetForm extends React.Component {
 const PasswordForgetLink = () => {
   return (
     <div>
-      <p> 
-        <Link to = {routes.PASSWORD_FORGET}> Forgot Password? </Link>
-        </p>
-      </div>
-  )
-}
+      <p>
+        <Link to={routes.PASSWORD_FORGET}> Forgot Password? </Link>
+      </p>
+    </div>
+  );
+};
 
 export default PasswordForgetPage;
 
-export {
-  PasswordForgetLink,
-  PasswordForgetForm
-}
+export { PasswordForgetLink, PasswordForgetForm };

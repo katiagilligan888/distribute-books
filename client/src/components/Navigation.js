@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import SignOutButton from "./SignOut";
 import * as routes from "../constants/routes";
 import AuthUserContext from "./AuthUserContext";
-import {Button} from 'react-materialize'; 
+import { Button } from "react-materialize";
 
 const Navigation = () => {
   return (
     <div>
       <AuthUserContext.Consumer>
-        {authUser => authUser ? <NavigationAuth /> : <NavigationNonAuth />}
+        {authUser => (authUser ? <NavigationAuth /> : <NavigationNonAuth />)}
       </AuthUserContext.Consumer>
     </div>
   );
@@ -17,35 +17,43 @@ const Navigation = () => {
 
 const NavigationAuth = () => {
   return (
-    <div className = "nav-auth">
+    <div className="nav-auth">
       <ul>
         <li>
-          <h1><Link to={routes.LANDING}>Distribute Books</Link></h1>
+          <h2>
+            <Link to={routes.LANDING}>Distribute Books</Link>
+          </h2>
         </li>
-        <li>
-          <Link to={routes.HOME}>Home</Link>
-        </li>
-        <li>
-          <Link to={routes.ACCOUNT}>Account</Link>
-        </li>
-        <li>
-          <Link to={routes.BOOK_FORM}>Book Form</Link>
-        </li>
+        <div className="nav-links-auth">
+          <li>
+            <Link to={routes.HOME}>Home</Link>
+          </li>
+          <li>
+            <Link to={routes.ACCOUNT}>Account</Link>
+          </li>
+          <li>
+            <Link to={routes.BOOK_FORM}>Book Form</Link>
+          </li>
+          <SignOutButton />
+        </div>
       </ul>
-      <SignOutButton />
     </div>
   );
 };
 
 const NavigationNonAuth = () => {
   return (
-    <div className = "nav">
+    <div className="nav">
       <ul>
         <li>
-          <h2><Link to = {routes.LANDING}> Distribute Books</Link> </h2>
-          </li>
+          <h2>
+            <Link to={routes.LANDING}> Distribute Books</Link>{" "}
+          </h2>
+        </li>
         <li>
-          <Link to={routes.SIGN_IN}><Button>Sign In</Button></Link>
+          <Link to={routes.SIGN_IN}>
+            <Button>Sign In</Button>
+          </Link>
         </li>
       </ul>
     </div>

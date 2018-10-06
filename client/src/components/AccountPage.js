@@ -9,7 +9,6 @@ const AccountPage = () => {
   return (
     <div>
       <h1>Account</h1>
-      <PasswordForgetForm />
       <PasswordChangeForm />
     </div>
   );

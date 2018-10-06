@@ -11,7 +11,7 @@ body{
 
 .sign-up-page{
   width: 100%;
-  height: 100vh; 
+  height: 87vh; 
   margin: 0; 
   padding: 0; 
   background-image: url("https://c1.staticflickr.com/4/3252/2877304479_7078df5f31_b.jpg");
@@ -24,9 +24,9 @@ body{
 .sign-up-form, .sign-in-form {
   background-color: #F9F9F9;
   height: 500px;  
-  width: 60%; 
+  width: 50%; 
   margin: 0 auto; 
-  margin-top: 10px;
+  margin-top: 0px;
   border-radius: 10px; 
   padding: 0px; 
   border: 5px solid #3D4849; 
@@ -34,7 +34,7 @@ body{
 
 .form {
   text-align: center; 
-  width: 75%; 
+  width: 80%; 
   margin: 0 auto; 
 }
 
@@ -58,7 +58,7 @@ input::placeholder {
   margin: 20px auto; 
 }
 
-/* Nav CSS Styling  */
+/* Nav Signed OUT CSS Styling  */
 
 .nav{
   border-bottom: 2px solid black;
@@ -90,6 +90,53 @@ input::placeholder {
  
 }
 
+/* Nav Signed IN CSS Styling */
+
+.nav-auth{
+  border-bottom: 2px solid black; 
+}
+
+.nav-auth ul{
+  display: flex; 
+  justify-content: space-between;
+  align-items: center; 
+  padding: 0;
+  margin: 0; 
+}
+
+.nav-auth ul h2{
+  margin: 0; 
+  padding: 0;
+  margin-left: 20px; 
+  margin-bottom: 10px;   
+}
+
+.nav-auth ul li a{
+  font-size: 18px; 
+  font-weight: bold; 
+  color: black; 
+}
+
+.nav-auth ul li a:hover{
+  color: rgba(43, 187, 173, 0.8);  
+  
+}
+
+.nav-auth ul h2 a{
+  font-size: 20px; 
+  font-weight: bold; 
+  font-family: 'Bai Jamjuree', sans-serif;
+  color: black;
+}
+
+
+
+.nav-auth ul .nav-links-auth{
+  display: flex; 
+  justify-content: space-around; 
+  width: 40%; 
+  align-items: center; 
+}
 /* Sign In Page CSS */
 
 .sign-in-page {
@@ -97,7 +144,7 @@ input::placeholder {
   height: 86vh; 
   margin: 0;
   padding: 0; 
-  background-image: url('https://cdn4.vectorstock.com/i/1000x1000/15/93/background-design-with-peacock-feathers-vector-7421593.jpg'); 
+  background-image: url('https://images.megapixl.com/4070/40703430.jpg'); 
   background-size: cover; 
   display:flex; 
   justify-content: center; 
@@ -125,4 +172,55 @@ input::placeholder {
   padding: 0; 
   background-image: url('http://3.bp.blogspot.com/-RS0tnDE5kjs/TiqFQ37jhgI/AAAAAAAAAA0/VkGcV3L-1XU/s1600/new+paint+copy.jpg'); 
   background-size: cover; 
+}
+
+/* Forgot Password CSS */
+
+.forgot-password{
+  display: flex; 
+  align-items: center; 
+}
+
+.forgot-password-form{
+  margin: 0 auto; 
+  width: 38%;
+  height: 75vh; 
+  text-align: center; 
+  margin-top: 40px; 
+  padding: 40px; 
+  border: 3px solid rgba(43, 187, 173, 0.6); 
+  height: 300px; 
+}
+
+.forgot-password-form h1{
+  font-size: 30px; 
+  font-weight: bold; 
+}
+
+/* Book Form Styling CSS */
+
+.bookform{
+  width: 60%;
+  margin: 10px auto; 
+}
+
+.bookform h1{
+  font-size: 50px; 
+  text-align: center; 
+  font-weight: bold;
+}
+
+.bookform h2{
+  font-size: 25px;
+  text-align: center; 
+}
+
+.bookform form{ 
+  padding: 20px; 
+  width: 100%
+}
+
+.button-container{
+  display:flex;
+  justify-content: center;  
 }
