@@ -3,14 +3,13 @@ import {Row, Input, Button } from "react-materialize";
 import { db, auth } from "../firebase";
 import firebase from "firebase";
 import * as routes from "../constants/routes";
+import Book from "./Book";
 
 const INITIAL_STATE = {
   date: "",
   distributionType: "",
   numberDistributors: "",
-  bookTitle: "",
-  bookLanguage: "",
-  bookNumber: ""
+  bookInputs: ['book-0']
 };
 
 class BookForm extends React.Component {
@@ -27,6 +26,12 @@ class BookForm extends React.Component {
     });
   };
 
+  appendBookInput = () => {
+    this.setState({
+      bookInputs: this.state.bookInputs.concat([`input-${this.state.bookInputs.length}`])
+    })
+  }
+
   onSubmitHandler = event => {
     const {
       date,
@@ -38,24 +43,24 @@ class BookForm extends React.Component {
     } = this.state;
     event.preventDefault();
     const user = firebase.auth().currentUser;
-    if (user) {
-      db.doCreateBook(
-        user.uid,
-        date,
-        distributionType,
-        numberDistributors,
-        bookTitle,
-        bookLanguage,
-        bookNumber
-      )
-        .then(() => {
-          this.setState({ ...INITIAL_STATE });
-          this.props.history.push(routes.HOME);
-        })
-        .catch(error => {
-          this.setState({ error });
-        });
-    }
+    // if (user) {
+    //   db.doCreateBook(
+    //     user.uid,
+    //     date,
+    //     distributionType,
+    //     numberDistributors,
+    //     bookTitle,
+    //     bookLanguage,
+    //     bookNumber
+    //   )
+    //     .then(() => {
+    //       this.setState({ ...INITIAL_STATE });
+    //       this.props.history.push(routes.HOME);
+    //     })
+    //     .catch(error => {
+    //       this.setState({ error });
+    //     });
+    // }
   };
 
   render() {
@@ -100,30 +105,8 @@ class BookForm extends React.Component {
             <option value="option 3"> Option 3 </option>
             <option value="option 4"> Option 4 </option>
           </select>
-          <Input
-            s = {5}
-            value={this.state.bookTitle}
-            name="bookTitle"
-            type="text"
-            onChange={this.onChangeHandler}
-            label="Book Title"
-          />
-          <Input
-            s = {5}
-            value={this.state.bookLanguage}
-            name="bookLanguage"
-            type="text"
-            onChange={this.onChangeHandler}
-            label="Book Language"
-          />
-          <Input
-            s = {2}
-            value={this.state.bookNumber}
-            name="bookNumber"
-            type="number"
-            onChange={this.onChangeHandler}
-            label="Number of Books"
-          />
+          {this.state.bookInputs.map((input, index) => <Book key = {index} />)}
+          <Button onClick = {this.appendBookInput}> Add Another Book </Button>
         </Row>
           <div className = "button-container">
             <Button className  = "book-form-button" type="submit">Add Book Data</Button>
