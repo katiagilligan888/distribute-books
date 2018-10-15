@@ -12,16 +12,14 @@ export const doCreateUser = (id, username, email, temple, city) =>
 export const onceGetUsers = () =>
   db.ref('users').once('value');
 
-// export const doCreateBook  = (id, date, distributionType, numberDistributors, bookTitle, bookLanguage, bookNumber) => 
-//     db.ref(`book-distributions/${id}/${date}/${bookTitle}`).set({
-//         id,
-//         date, 
-//         distributionType, 
-//         numberDistributors,
-//         bookTitle, 
-//         bookLanguage, 
-//         bookNumber
-//     }); 
+export const doCreateBook  = (id, date, distributionType, numberDistributors, books) => 
+    db.ref(`book-distributions/${id}/${date}`).set({
+        id,
+        date, 
+        distributionType, 
+        numberDistributors,
+        books
+    }); 
 
 export const onceGetDistributions = () => 
     db.ref(`book-distributions`).once('value'); 
