@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SignOutButton from "./SignOut";
 import * as routes from "../constants/routes";
-import AuthUserContext from "./AuthUserContext";
-import { Button } from "react-materialize";
+import AuthUserContext from "./AuthUserContext"; 
 
 const Navigation = () => {
   return (
@@ -52,7 +51,7 @@ const NavigationNonAuth = () => {
         </li>
         <li>
           <Link to={routes.SIGN_IN}>
-            <Button>Sign In</Button>
+            <button type="button" className="btn btn-pill btn-secondary">Sign In</button>
           </Link>
         </li>
       </ul>

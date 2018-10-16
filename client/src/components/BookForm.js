@@ -1,5 +1,4 @@
 import React from "react";
-import {Row, Input, Button } from "react-materialize";
 import { db, auth } from "../firebase";
 import firebase from "firebase";
 import * as routes from "../constants/routes";
@@ -8,7 +7,7 @@ const INITIAL_STATE = {
   date: "",
   distributionType: "",
   numberDistributors: "",
-  bookInputs: ['book-0'], 
+  bookInputs: ["book-0"],
   books: [],
   bookTitle: "",
   bookLanguage: "",
@@ -29,92 +28,97 @@ class BookForm extends React.Component {
     });
   };
 
-
-  appendBookInput = (e) => {
-    e.preventDefault()
+  appendBookInput = e => {
+    e.preventDefault();
     const book = {
       bookTitle: this.state.bookTitle,
-      bookLanguage: this.state.bookLanguage, 
+      bookLanguage: this.state.bookLanguage,
       bookNumber: this.state.bookNumber
-    }
+    };
 
-    const booksArr = [...this.state.books, book]
+    const booksArr = [...this.state.books, book];
 
     this.setState({
-      bookInputs: this.state.bookInputs.concat([`book-${this.state.bookInputs.length}`]), 
+      bookInputs: this.state.bookInputs.concat([
+        `book-${this.state.bookInputs.length}`
+      ]),
       books: booksArr,
-      bookTitle: "", 
-      bookLanguage: "", 
+      bookTitle: "",
+      bookLanguage: "",
       bookNumber: ""
-    })
-  }
-
+    });
+  };
 
   onSubmitHandler = event => {
-
     const {
       date,
       distributionType,
       numberDistributors,
       bookTitle,
       bookLanguage,
-      bookNumber, 
+      bookNumber,
       books
     } = this.state;
 
-    
-    
     event.preventDefault();
     const user = firebase.auth().currentUser;
     if (user) {
-      if(bookTitle || bookLanguage || bookNumber){
+      if (bookTitle || bookLanguage || bookNumber) {
         const book = {
           bookTitle: this.state.bookTitle,
-          bookLanguage: this.state.bookLanguage, 
+          bookLanguage: this.state.bookLanguage,
           bookNumber: this.state.bookNumber
-        }
-        const booksArr = [...this.state.books, book]
+        };
+        const booksArr = [...this.state.books, book];
         this.setState({
           books: booksArr,
-          bookTitle: "", 
-          bookLanguage: "", 
+          bookTitle: "",
+          bookLanguage: "",
           bookNumber: ""
-        })
-      db.doCreateBook(
-        user.uid,
-        date,
-        distributionType,
-        numberDistributors,
-        booksArr.map(book =>{
-          return {title: book.bookTitle, language: book.bookLanguage, number: book.bookNumber}
-        })
-      )
-        .then(() => {
-          this.setState({ ...INITIAL_STATE });
-        })
-        .catch(error => {
-          this.setState({ error });
-          console.log(this.state.error)
         });
-    }else{
-      db.doCreateBook(
-        user.uid,
-        date,
-        distributionType,
-        numberDistributors,
-        books.map(book =>{
-          return {title: book.bookTitle, language: book.bookLanguage, number: book.bookNumber}
-        })
-      )
-        .then(() => {
-          this.setState({ ...INITIAL_STATE });
-        })
-        .catch(error => {
-          this.setState({ error });
-          console.log(this.state.error)
-        }); 
+        db.doCreateBook(
+          user.uid,
+          date,
+          distributionType,
+          numberDistributors,
+          booksArr.map(book => {
+            return {
+              title: book.bookTitle,
+              language: book.bookLanguage,
+              number: book.bookNumber
+            };
+          })
+        )
+          .then(() => {
+            this.setState({ ...INITIAL_STATE });
+          })
+          .catch(error => {
+            this.setState({ error });
+            console.log(this.state.error);
+          });
+      } else {
+        db.doCreateBook(
+          user.uid,
+          date,
+          distributionType,
+          numberDistributors,
+          books.map(book => {
+            return {
+              title: book.bookTitle,
+              language: book.bookLanguage,
+              number: book.bookNumber
+            };
+          })
+        )
+          .then(() => {
+            this.setState({ ...INITIAL_STATE });
+          })
+          .catch(error => {
+            this.setState({ error });
+            console.log(this.state.error);
+          });
+      }
     }
-  }
   };
 
   render() {
@@ -123,71 +127,103 @@ class BookForm extends React.Component {
         <h1>Book Form </h1>
         <h2>
           {" "}
-          <strong>Instructions:</strong> Fill out the form with the information about the latest
-          booksale{" "}
+          <strong>Instructions:</strong> Fill out the form with the information
+          about the latest booksale{" "}
         </h2>
         <form onSubmit={this.onSubmitHandler}>
-        <Row>
-          <Input
-            s = {6}
-            value={this.state.date}
-            name="date"
-            type="date"
-            onChange={this.onChangeHandler}
-            label="Date"
-          />
-          <Input
-            s = {6}
-            value={this.state.numberDistributors}
-            name="numberDistributors"
-            type="number"
-            onChange={this.onChangeHandler}
-            label="Number of Distributors"
-          />
-          <label for="distributionType">Type of Book Distribution </label>
-          <select
-            value={this.state.distributionType}
-            name="distributionType"
-            className="browser-default"
-            onChange={this.onChangeHandler}
-          >
-            <option value="" disabled selected>
-              Choose Your Distribution Type{" "}
-            </option>
-            <option value="option 1"> Option 1 </option>
-            <option value="option 2"> Option 2</option>
-            <option value="option 3"> Option 3 </option>
-            <option value="option 4"> Option 4 </option>
-          </select>
-          {this.state.bookInputs.map((input, index) => 
-            <div className = "dynamicBooks">
-            <Input
-                s = {5}
-                name="bookTitle"
-                type="text"
+          <div className="form-row justify-content-center">
+            <div className="form-group col-md-2">
+              <label for="dateOfEvent"> Date of Event</label>
+              <input
+                className="form-control"
+                value={this.state.date}
+                name="date"
+                type="date"
                 onChange={this.onChangeHandler}
-                label="Book Title"
-            />
-            <Input
-                s = {5}
-                name="bookLanguage"
-                type="text"
-                onChange={this.onChangeHandler}
-                label="Book Language"
-            />
-            <Input
-                s = {2}
-                name="bookNumber"
+                label="Date"
+              />
+            </div>
+            <div className="form-group col-md-3">
+              <label for="numberOfDistributors">Number of Distibutors</label>
+              <input
+                className="form-control"
+                value={this.state.numberDistributors}
+                name="numberDistributors"
                 type="number"
                 onChange={this.onChangeHandler}
-                label="Number of Books"
-            />
+                label="Number of Distributors"
+              />
             </div>
-          )}
-          <Button onClick = {this.appendBookInput}> Add Another Book </Button>
-        </Row>
-          <div className = "button-container">
-            <Button className  = "book-form-button" type="submit">Add Book Data</Button>
+            <div className="form-group col-md-5">
+              <label for="distributionType">Type of Book Distribution </label>
+              <select
+                className="form-control"
+                value={this.state.distributionType}
+                name="distributionType"
+                onChange={this.onChangeHandler}
+              >
+                <option value="" disabled selected>
+                  Choose Your Distribution Type{" "}
+                </option>
+                <option value="option 1"> Option 1 </option>
+                <option value="option 2"> Option 2</option>
+                <option value="option 3"> Option 3 </option>
+                <option value="option 4"> Option 4 </option>
+              </select>
+            </div>
+            {this.state.bookInputs.map((input, index) => (
+              <div className="dynamicBooks">
+                <div className="form-row">
+                  <div className="form-group col-md-4">
+                    <label for="bookTitle">Book Title</label>
+                    <input
+                      className="form-control"
+                      name="bookTitle"
+                      type="text"
+                      onChange={this.onChangeHandler}
+                      label="Book Title"
+                    />
+                  </div>
+                  <div className="form-group col-md-4">
+                    <label for="bookLanguage">Book Language</label>
+                    <input
+                      className="form-control"
+                      name="bookLanguage"
+                      type="text"
+                      onChange={this.onChangeHandler}
+                      label="Book Language"
+                    />
+                  </div>
+                  <div className="form-group col-md-4">
+                    <label for="bookNumber">Number of Books</label>
+                    <input
+                      className="form-control"
+                      name="bookNumber"
+                      type="number"
+                      onChange={this.onChangeHandler}
+                      label="Number of Books"
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <button
+            type="button"
+            className="btn btn-pill btn-success button-add-book"
+            onClick={this.appendBookInput}
+          >
+            {" "}
+            Add Another Book{" "}
+          </button>
+          <div className="button-container">
+            <button
+              type="button"
+              className="btn btn-lg btn-pill btn-primary"
+              type="submit"
+            >
+              Add Book Data
+            </button>
           </div>
         </form>
       </div>
