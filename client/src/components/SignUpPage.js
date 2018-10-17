@@ -40,7 +40,7 @@ class SignUpForm extends React.Component {
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
         // Create user in database
-        db.doCreateUser(authUser, username, email, temple, city)
+        db.doCreateUser(authUser.user.uid, username, email, temple, city)
           .then(() => {
             this.setState({ ...INITIAL_STATE });
             this.props.history.push(routes.HOME);

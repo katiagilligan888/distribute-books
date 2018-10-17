@@ -2,6 +2,7 @@ import React from "react";
 import { db, auth } from "../firebase";
 import firebase from "firebase";
 import * as routes from "../constants/routes";
+import {Input} from 'react-materialize'; 
 
 const INITIAL_STATE = {
   date: "",
@@ -59,6 +60,8 @@ class BookForm extends React.Component {
       bookNumber,
       books
     } = this.state;
+
+    const myDate = new Date(`${this.state.date}`)
 
     event.preventDefault();
     const user = firebase.auth().currentUser;
