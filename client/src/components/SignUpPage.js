@@ -1,11 +1,8 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
-
+import { Link, withRouter } from "react-router-dom"; 
 import * as routes from "../constants/routes";
 import { auth, db } from "../firebase";
 import bg from "../background.jpg";
-
-import { Button, Input, Row } from "react-materialize";
 
 const SignUpPage = ({ history }) => {
   return (
@@ -82,64 +79,76 @@ class SignUpForm extends React.Component {
     return (
       <div className="sign-up-form">
         <div className="form">
-          <h1>Distribute Books</h1>
           <h2>Create a New Account</h2>
           <form onSubmit={this.onSubmitHandler}>
-            <Row>
-              <Input
-                s={6}
-                value={username}
-                name="username"
-                onChange={this.onChangeHandler}
-                type="text"
-                placeholder="Full Name"
-              />
-              <Input
-                s={6}
-                value={email}
-                name="email"
-                onChange={this.onChangeHandler}
-                type="text"
-                placeholder="Email Address"
-              />
-              <Input
-                s={6}
-                value={temple}
-                name="temple"
-                onChange={this.onChangeHandler}
-                type="text"
-                placeholder="Temple"
-              />
-              <Input
-                s={6}
-                value={city}
-                name="city"
-                onChange={this.onChangeHandler}
-                type="text"
-                placeholder="City"
-              />
-              <Input
-                s={6}
-                value={passwordOne}
-                name="passwordOne"
-                onChange={this.onChangeHandler}
-                type="password"
-                placeholder="Password"
-              />
-              <Input
-                s={6}
-                value={passwordTwo}
-                name="passwordTwo"
-                onChange={this.onChangeHandler}
-                type="password"
-                placeholder="Confirm Password"
-              />
-            </Row>
-            {error && <p>{error.message}</p>}
-            <Button disabled={isInvalid} type="submit">
+            <div className="row">
+              <div className="form-group col-md-6">
+                <input
+                  className="form-control"
+                  value={username}
+                  name="username"
+                  onChange={this.onChangeHandler}
+                  type="text"
+                  placeholder="Full Name"
+                />
+              </div>
+              <div className="form-group col-md-6">
+                <input
+                  className="form-control"
+                  value={email}
+                  name="email"
+                  onChange={this.onChangeHandler}
+                  type="text"
+                  placeholder="Email Address"
+                />
+              </div>
+              <div className="form-group col-md-6">
+                <input
+                  className="form-control"
+                  value={temple}
+                  name="temple"
+                  onChange={this.onChangeHandler}
+                  type="text"
+                  placeholder="Temple"
+                />
+              </div>
+              <div className="form-group col-md-6">
+                <input
+                  className="form-control"
+                  value={city}
+                  name="city"
+                  onChange={this.onChangeHandler}
+                  type="text"
+                  placeholder="City"
+                />
+              </div>
+              <div className="form-group col-md-6">
+                <input
+                  className="form-control"
+                  value={passwordOne}
+                  name="passwordOne"
+                  onChange={this.onChangeHandler}
+                  type="password"
+                  placeholder="Password"
+                />
+              </div>
+              <div className="form-group col-md-6">
+                <input
+                  className="form-control"
+                  value={passwordTwo}
+                  name="passwordTwo"
+                  onChange={this.onChangeHandler}
+                  type="password"
+                  placeholder="Confirm Password"
+                />
+              </div>
+            </div>
+            {error && <p>{error.message}</p>} 
+            <button disabled={isInvalid} type="submit" className = "sign-up-button btn btn-lg btn-pill btn-primary">
               {" "}
               Sign Up
-            </Button>
+            </button>
+            
           </form>
         </div>
       </div>

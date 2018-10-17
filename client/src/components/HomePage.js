@@ -4,7 +4,6 @@ import withAuthorization from "./withAuthorization";
 const HomePage = () => {
   return (
     <div>
-      <h1>Home Page</h1>
 
       <div className=" row stats-for-data justify-content-center">
         <div className="statcard statcard-primary p-4 mb-2 col-md-2">

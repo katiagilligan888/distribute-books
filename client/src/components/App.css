@@ -1,7 +1,32 @@
 /* Sign Up Page CSS */
-.nav-auth ul, .nav ul {
+.nav-auth ul {
   display: flex; 
   justify-content: space-between;
+  margin-top: 20px; 
+}
+
+.nav-auth ul li{
+  list-style-type: none; 
+}
+
+.nav ul{
+  width: 100%; 
+  display: flex; 
+  justify-content: space-between; 
+}
+
+.nav ul li {
+  list-style-type: none; 
+  margin-right: 20px; 
+  margin-top: 20px; 
+}
+
+.nav ul li h2{
+  font-size: 25px; 
+}
+
+.nav ul li h2:hover{
+  text-decoration: none; 
 }
 
 .nav-links-auth{
@@ -15,11 +40,17 @@
 
 .nav-links-auth li{
   margin-right: 20px; 
+ 
 }
 
 .nav-links-auth li a:hover{
   text-decoration: none; 
   color: white; 
+}
+
+.nav-auth ul li h2{
+  font-size: 25px; 
+  list-style-type: none; 
 }
 
 .bookform {
@@ -55,4 +86,56 @@
 
 .map{
   margin-left: 5%; 
+}
+
+.sign-up-form form{
+  width: 65%; 
+  margin: 0 auto; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column;
+}
+
+/* .sign-up-form form .row{
+  background-color: lightgrey; 
+  padding: 10%; 
+  margin: 20px; 
+  margin-bottom: 50px; 
+  border-radius: 20px; 
+} */
+
+.sign-up-form form .row input::placeholder{
+  color: white; 
+}
+
+.sign-up-form h2{
+  text-align: center; 
+  margin: 20px 0 40px 0; 
+}
+
+.sign-up-button {
+  margin-top: 40px; 
+}
+
+.sign-in-form form{
+  width: 100%; 
+  display: flex;  
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column; 
+}
+
+.sign-in-form h2{
+  margin-bottom: 30px; 
+  margin-top: 60px; 
+}
+
+.sign-in-form button {
+  margin-top: 20px; 
+  margin-bottom: 20px; 
+}
+
+.sign-in-form .row input::placeholder{
+  color: white; 
 }
