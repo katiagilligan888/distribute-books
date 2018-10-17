@@ -1,16 +1,16 @@
 
 import { db } from './firebase';
 
-export const doCreateUser = (id, username, email, temple, city) =>
-  db.ref(`users/${id}`).set({
-    username,
-    email,
-    temple, 
-    city
-  });
-
-export const onceGetUsers = () =>
-  db.ref('users').once('value');
+export const doCreateUser = (userid, username, email, temple, city) =>
+  db.settings({
+    timestampsInSnapshots: true
+  }); 
+  db.collection('users').doc(userid).add({
+    username: username,
+    email: email, 
+    temple: temple, 
+    city: city
+  });  
 
 export const doCreateBook  = (id, date, distributionType, numberDistributors, books) => 
     db.ref(`book-distributions/${id}/${date}`).set({
