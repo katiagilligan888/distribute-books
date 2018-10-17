@@ -1,5 +1,6 @@
 import React from "react";
 import withAuthorization from "./withAuthorization";
+import GiverForm from './GiverForm'; 
 
 const HomePage = () => {
   return (
@@ -29,21 +30,7 @@ const HomePage = () => {
           <p> This is where the map will be located </p>
         </div>
         <div className="form col-md-3">
-          <form>
-            <h3> Sign up to Be a Giver </h3>
-            <div className="form-group">
-              <label for="name">Name </label>
-              <input type="text" className="form-control" />
-            </div>
-            <div className="form-group">
-              <label for="email">Email </label>
-              <input type="text" className="form-control" />
-            </div>
-            <div className="form-group">
-              <label for="name">Country </label>
-              <input type="text" className="form-control" />
-            </div>
-          </form>
+          <GiverForm />
         </div>
       </div>
 

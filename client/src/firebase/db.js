@@ -12,14 +12,14 @@ export const doCreateUser = (userid, username, email, temple, city) =>
  
 
 export const doCreateBook  = (userid, epochDate,humanDate, distributionType, numberDistributors,bookNumber, books) => 
-  db.collection('user').doc(userid).collection('date').doc(epochDate).collection('eventID').doc().set({
+  db.collection('distribute-books').doc(userid).collection('date').doc(epochDate).collection('eventID').doc().set({
     bookNumber: bookNumber, 
     userId: userid, 
     epochDate: epochDate, 
     date: humanDate,
     distributionType: distributionType, 
     numberDistributors: numberDistributors, 
-    books: books  
+    books: books
   })
 
 export const doCreateBookScore = (userid, epochDate, humanDate, distributionType, numberDistributors, books) => 
