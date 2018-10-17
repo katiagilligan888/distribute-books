@@ -2,10 +2,10 @@ import React from "react";
 import BookForm from './BookForm'; 
 import withAuthorization from './withAuthorization';
 
-const BookFormPage = () => {
+const BookFormPage = ({history}) => {
   return (
     <div>
-      <BookForm />
+      <BookForm history = {history} />
     </div>
   );
 };

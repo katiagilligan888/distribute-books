@@ -2,7 +2,7 @@ import React from "react";
 import { db, auth } from "../firebase";
 import firebase from "firebase";
 import * as routes from "../constants/routes";
-import {Input} from 'react-materialize'; 
+import moment from 'moment'; 
 
 const INITIAL_STATE = {
   date: "",
@@ -12,7 +12,8 @@ const INITIAL_STATE = {
   books: [],
   bookTitle: "",
   bookLanguage: "",
-  bookNumber: ""
+  bookNumber: "", 
+  epochTime: ""
 };
 
 class BookForm extends React.Component {
@@ -61,7 +62,9 @@ class BookForm extends React.Component {
       books
     } = this.state;
 
-    const myDate = new Date(`${this.state.date}`)
+    const myDate = moment(`${this.state.date} 12:00`, "YYYY/MM/DD H:mm").valueOf(); 
+    console.log(myDate)
+    console.log(`${this.state.date} 12:00`)
 
     event.preventDefault();
     const user = firebase.auth().currentUser;
@@ -81,9 +84,11 @@ class BookForm extends React.Component {
         });
         db.doCreateBook(
           user.uid,
+          `${moment(`${date} 12:00`,'YYYY/MM/DD H:mm').valueOf()}`, 
           date,
           distributionType,
           numberDistributors,
+          bookNumber, 
           booksArr.map(book => {
             return {
               title: book.bookTitle,
@@ -94,6 +99,7 @@ class BookForm extends React.Component {
         )
           .then(() => {
             this.setState({ ...INITIAL_STATE });
+            this.props.history.push(routes.HOME); 
           })
           .catch(error => {
             this.setState({ error });
