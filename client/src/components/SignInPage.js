@@ -90,7 +90,6 @@ class SignInForm extends Component {
 
           {error && <p>{error.message}</p>}
           <PasswordForgetLink />
-        <SignUpLink />
         </form>
         
       </div>

@@ -20,6 +20,10 @@ const config = {
 
   const db = firebase.firestore();
   const auth = firebase.auth(); 
+
+  db.settings({
+    timestampsInSnapshots: true
+  }); 
   
   export {
       db,
