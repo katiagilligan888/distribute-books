@@ -22,4 +22,14 @@ export const doCreateBook  = (userid, epochDate,humanDate, distributionType, num
     books: books  
   })
 
+export const doCreateBookScore = (userid, epochDate, humanDate, distributionType, numberDistributors, books) => 
+  db.collection('book-scores').add({
+    userId: userid, 
+    epochDate: epochDate, 
+    date: humanDate,
+    distributionType: distributionType, 
+    numberDistributors: numberDistributors, 
+    books: books 
+  })
+
   

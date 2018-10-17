@@ -62,10 +62,6 @@ class BookForm extends React.Component {
       books
     } = this.state;
 
-    const myDate = moment(`${this.state.date} 12:00`, "YYYY/MM/DD H:mm").valueOf(); 
-    console.log(myDate)
-    console.log(`${this.state.date} 12:00`)
-
     event.preventDefault();
     const user = firebase.auth().currentUser;
     if (user) {
@@ -89,6 +85,20 @@ class BookForm extends React.Component {
           distributionType,
           numberDistributors,
           bookNumber, 
+          booksArr.map(book => {
+            return {
+              title: book.bookTitle,
+              language: book.bookLanguage,
+              number: book.bookNumber
+            };
+          })
+        )
+        db.doCreateBookScore(
+          user.uid,
+          `${moment(`${date} 12:00`,'YYYY/MM/DD H:mm').valueOf()}`, 
+          date,
+          distributionType,
+          numberDistributors,
           booksArr.map(book => {
             return {
               title: book.bookTitle,
