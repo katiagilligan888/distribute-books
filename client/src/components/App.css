@@ -55,29 +55,34 @@
 
 .bookform {
   margin: 40px auto; 
-  width: 80%;  
+  width: 60%;  
 }
 
-.bookform h1, .bookform h2{
+.book-fields{
+  width: 100%; 
+}
+
+.book-form-title{
   text-align: center; 
 }
 
-.bookform h2{
+.book-form-title h2{
   font-size: 20px; 
   margin-bottom: 50px; 
-}
-
-.bookform form {
-  margin-top: 30px; 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center; 
-}
-
-.button-add-book{
   margin-top: 20px; 
-  margin-bottom: 40px; 
+}
+
+.submit-book-form{
+  margin-top: 30px; 
+}
+
+.book-fields{
+  margin-bottom: 30px; 
+}
+
+.book-headline{
+  margin-top: 20px; 
+  color: lightgreen; 
 }
 
 .statcard{

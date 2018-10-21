@@ -14,11 +14,10 @@ export const doCreateUser = (userid, username, email, temple, city) => {
 }
  
 
-export const doCreateBook  = (userid, epochDate, humanDate, distributionType, numberDistributors, bookNumber, books) =>  {
+export const doCreateBook  = (userid, epochDate, humanDate, distributionType, numberDistributors, books) =>  {
   let userRef = db.collection(BOOK_DISTRIBUTIONS).doc(userid);
   let finalNode = db.collection(BOOK_DISTRIBUTIONS).doc(userRef.id).collection(epochDate).doc();
   return finalNode.set({
-      bookNumber: bookNumber, 
       userId: userid, 
       epochDate: epochDate, 
       date: humanDate,
