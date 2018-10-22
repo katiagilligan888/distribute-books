@@ -149,3 +149,18 @@
 .error {
   color: red; 
 }
+
+.buttons-submit-clear{
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+.buttons-submit-clear button{
+  margin-top: 20px; 
+  margin-right: 10px; 
+}
+
+.book-language:placeholder{
+  color: black; 
+}
