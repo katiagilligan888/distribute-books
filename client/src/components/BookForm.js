@@ -57,7 +57,6 @@ class BookForm extends React.Component {
             <div className="book-fields" key={index}>
               <h4 className="book-headline">Book #{index + 1}</h4>
               <Field
-                className="form-control"
                 name={`${book}.title`}
                 component={this.renderField}
                 label="Book Title"
@@ -65,7 +64,6 @@ class BookForm extends React.Component {
               />
               <label>Book Language</label>
               <Field
-                className="form-control"
                 name={`${book}.language`}
                 const
                 component={props => (
@@ -165,7 +163,8 @@ class BookForm extends React.Component {
                       { value: "Turkmen", label: "Turkmen" },
                       { value: "Udmurt", label: "Udmurt" },
                       { value: "Uzbekh", label: "Uzbekh" },
-                      { value: "Zhosa", label: "Zhosa" }
+                      { value: "Zhosa", label: "Zhosa" }, 
+                      {value: "English", label: "English"}
                     ]}
                     placeholder="Select"
                     simpleValue
@@ -173,7 +172,6 @@ class BookForm extends React.Component {
                 )}
               />
               <Field
-                className="form-control"
                 name={`${book}.number`}
                 component={this.renderField}
                 label="Book Number"
@@ -215,7 +213,7 @@ class BookForm extends React.Component {
       values.books.map(book => {
         return {
           title: book.title,
-          language: book.language,
+          language: book.language.value,
           number: book.number
         };
       })
