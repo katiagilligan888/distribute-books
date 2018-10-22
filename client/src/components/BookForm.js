@@ -1,6 +1,7 @@
 import React from "react";
 import { db, auth } from "../firebase";
 import { Field, FieldArray, reduxForm, reset} from "redux-form";
+import { toast } from 'react-toastify'
 import firebase from "firebase";
 import * as routes from "../constants/routes";
 import moment from "moment";
@@ -225,6 +226,7 @@ class BookForm extends React.Component {
       values.numberDistributors,
       values.books
     )).then(() => {
+      toast.success("Form successfully submitted!")
       this.props.reset()
     })
   };

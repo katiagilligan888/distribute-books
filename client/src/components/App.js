@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route } from 'react-router-dom'; 
 import { firebase } from '../firebase'; 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css'; 
 
 import Navigation from './Navigation'; 
 import LandingPage from './LandingPage';
@@ -29,6 +31,7 @@ const App = () => {
             <Route path = {routes.BOOK_FORM} component = {BookFormPage} />
             <Route path = {routes.ACCOUNT} component = {AccountPage} />
             <Route path = {routes.HOME} component = {HomePage} />
+            <ToastContainer position="top-center" />
         </div>
     )
 }
