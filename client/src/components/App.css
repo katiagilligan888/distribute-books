@@ -144,3 +144,8 @@
 .sign-in-form .row input::placeholder{
   color: white; 
 }
+
+
+.error {
+  color: red; 
+}

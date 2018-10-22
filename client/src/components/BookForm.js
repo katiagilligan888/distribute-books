@@ -15,13 +15,16 @@ class BookForm extends React.Component {
           type={field.inputType}
           {...field.input}
         />
-        {field.meta.touched ? field.meta.error : ""}
+        {field.meta.touched ? <span className = "error">{field.meta.error}</span> : ""}
       </div>
     );
   };
 
-  renderBookSubFields = (book, index, fields) => {
+  renderBooks = ({ fields, meta: { error, submitFailed } }) => {
     return (
+      <div className="form-group col-md-12">
+        {fields.map((book, index, fields) => {
+      return (
       <div className="book-fields" key={index}>
         <h4 className="book-headline">Book #{index + 1}</h4>
         <Field
@@ -53,13 +56,7 @@ class BookForm extends React.Component {
           Remove Book
         </button>
       </div>
-    );
-  };
-
-  renderBooks = ({ fields }) => {
-    return (
-      <div className="form-group col-md-12">
-        {fields.map(this.renderBookSubFields)}
+    )})}
         <div className="text-center">
           <button
             className=" add-book-button btn btn-warning btn-lg"
@@ -68,6 +65,11 @@ class BookForm extends React.Component {
           >
             + Add Book
           </button>
+          {submitFailed &&
+        error &&
+        <div className = "error">
+          {error}
+        </div>}  
         </div>
       </div>
     );
@@ -82,15 +84,14 @@ class BookForm extends React.Component {
       values.date,
       values.typeOfDistribution,
       values.numberDistributors,
-      values.books
-        ? values.books.map(book => {
+      values.books.map(book => {
             return {
               title: book.title,
               language: book.language,
               number: book.number
             };
           })
-        : null
+        
     );
     db.doCreateBookScore(
       user.uid,
@@ -98,7 +99,7 @@ class BookForm extends React.Component {
       values.date,
       values.typeOfDistribution,
       values.numberDistributors,
-      values.books ? values.books : null
+      values.books
     );
   };
 
@@ -157,11 +158,48 @@ const validate = values => {
   if (!values.date) {
     errors.date = "Enter a valid date";
   }
+
   if (!values.numberDistributors) {
     errors.numberDistributors = "Enter a valid number of distributors";
+  }else if(Number(values.numberDistributors) < 1){
+    errors.numberDistributors = "Number of Distributors needs to at least be 1"
+  }else if(Number(values.numberDistributors) > 300){
+    errors.numberDistributors  = "Number of Distributors cannot exceed 300"
   }
-  if (!values.bookNumber) {
-    errors.bookNumber = "Enter a valid number of books";
+
+  if(!values.typeOfDistribution){
+    errors.typeOfDistribution = "Enter a valid type of distribution"
+  }
+
+  if (!values.books || !values.books.length) {
+    errors.books = { _error: 'At least one book must be entered' }
+  } else {
+    const bookArrayErrors = []
+    values.books.forEach((book, bookIndex) => {
+      const bookErrors = {}
+      if (!book || !book.title) {
+        bookErrors.title = 'Enter a title'
+        bookArrayErrors[bookIndex] = bookErrors
+      }
+      if (!book || !book.language) {
+        bookErrors.language = 'Enter a language'
+        bookArrayErrors[bookIndex] = bookErrors
+      }
+      if(!book || !book.number){
+        bookErrors.number = 'Enter a number'
+        bookArrayErrors[bookIndex] = bookErrors
+      }else if(Number(book.number) < 1){
+        bookErrors.number = 'Number needs to be at least 1'
+        bookArrayErrors[bookIndex] = bookErrors
+      }else if(Number(book.number) > 3000){
+        bookErrors.number = 'Number cannot exceed 3000'
+        bookArrayErrors[bookIndex] = bookErrors
+      }
+      
+    })
+    if (bookArrayErrors.length) {
+      errors.books = bookArrayErrors
+    }
   }
 
   return errors;
