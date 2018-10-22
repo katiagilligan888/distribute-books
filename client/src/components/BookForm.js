@@ -1,6 +1,6 @@
 import React from "react";
 import { db, auth } from "../firebase";
-import { Field, FieldArray, reduxForm } from "redux-form";
+import { Field, FieldArray, reduxForm, reset} from "redux-form";
 import firebase from "firebase";
 import * as routes from "../constants/routes";
 import moment from "moment";
@@ -65,8 +65,7 @@ class BookForm extends React.Component {
               <label>Book Language</label>
               <Field
                 name={`${book}.language`}
-                const
-                component={props => (
+                const component={props => (
                   <Select
                     styles={customStyles}
                     label="Book Language"
@@ -166,10 +165,11 @@ class BookForm extends React.Component {
                       { value: "Zhosa", label: "Zhosa" }, 
                       {value: "English", label: "English"}
                     ]}
-                    placeholder="Select"
+                    placeholder="Select Language"
                     simpleValue
                   />
                 )}
+                
               />
               <Field
                 name={`${book}.number`}
@@ -217,15 +217,16 @@ class BookForm extends React.Component {
           number: book.number
         };
       })
-    );
-    db.doCreateBookScore(
+    ).then(() => db.doCreateBookScore(
       user.uid,
       `${moment(`${values.date} 12:00`, "YYYY/MM/DD H:mm").valueOf()}`,
       values.date,
       values.typeOfDistribution,
       values.numberDistributors,
       values.books
-    );
+    )).then(() => {
+      this.props.reset()
+    })
   };
 
   render() {
