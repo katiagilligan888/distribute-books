@@ -1,11 +1,15 @@
 import React from "react";
 import {Field, reduxForm} from 'redux-form'; 
+import Recaptcha from 'react-recaptcha';  
 import { toast } from 'react-toastify'; 
 import { db } from "../firebase";
 
 class GiverForm extends React.Component {
   constructor() {
     super();
+    this.state = {
+      isVerified: false
+    }
   }
 
   renderField = field => {
@@ -27,10 +31,18 @@ class GiverForm extends React.Component {
   }
 
   onSubmit = (values) => {
+    if(this.state.isVerified){
       db.doCreateGiver(values.firstName, values.lastName, values.email, values.country).then(() => {
         toast.info("Thank you for becoming a Giver")
         this.props.reset(); 
       })
+    }else {
+      toast.info("Confirm you are human to submit form!")
+    }
+  }
+
+  verifyCallback = () => {
+    this.setState({ isVerified: true})
   }
 
   render() {
@@ -42,7 +54,13 @@ class GiverForm extends React.Component {
           <Field name = "lastName" label = "Last Name" inputType = "text" component = {this.renderField} />
           <Field name = "email" label = "Email" inputType = "text" component = {this.renderField} />
           <Field name = "country" label = "Country" inputType = "text" component = {this.renderField} />
-          <button className = "btn">Sign Up</button>
+          <Recaptcha
+            sitekey="6Ldtg3YUAAAAAHj5KFlLRPBFIT_QGhoBcXTgKwPw"
+            render="explicit"
+            theme= "dark"
+            verifyCallback = {this.verifyCallback}
+          />
+          <button className = "btn btn-primary btn-pill">Sign Up</button>
         </form>
       </div>
     );
