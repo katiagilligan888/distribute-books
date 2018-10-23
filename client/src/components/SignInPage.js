@@ -1,34 +1,36 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import { Field, reduxForm} from 'redux-form'; 
+import { Field, reduxForm } from "redux-form";
 import { SignUpLink } from "./SignUpPage";
 import { PasswordForgetLink } from "./PasswordForget";
 import { auth } from "../firebase";
 import * as routes from "../constants/routes";
 
 class SignInForm extends Component {
-  constructor(){
-    super(); 
+  constructor() {
+    super();
     this.state = {
-      error: ''
-    }
+      error: ""
+    };
   }
 
   renderField = field => {
     return (
-      <div className = "form-group col-md-12">
+      <div className="form-group col-md-12">
         <label>{field.label}</label>
-        <input className = "form-control"
-        type = {field.inputType}
-        {...field.input} />
+        <input
+          className="form-control"
+          type={field.inputType}
+          {...field.input}
+        />
         {field.meta.touched ? (
           <span className="error">{field.meta.error}</span>
         ) : (
           ""
         )}
-        </div>
-    )
-  }
+      </div>
+    );
+  };
 
   onSubmit = values => {
     const { history } = this.props;
@@ -43,15 +45,25 @@ class SignInForm extends Component {
   };
 
   render() {
-    const {handleSubmit} = this.props
+    const { handleSubmit } = this.props;
     return (
       <div className="sign-in-form">
         <form className="form" onSubmit={handleSubmit(this.onSubmit)}>
           <h2>Sign In</h2>
-          <div className = "form-row">
-            <Field name = "email" component = {this.renderField} label = "Email Address" inputType = "text"/>
-            <Field name = "password" component = {this.renderField} label = "Password" inputType = "password" />
-          </div> 
+          <div className="form-row">
+            <Field
+              name="email"
+              component={this.renderField}
+              label="Email Address"
+              inputType="text"
+            />
+            <Field
+              name="password"
+              component={this.renderField}
+              label="Password"
+              inputType="password"
+            />
+          </div>
           <button
             className="button-sign-in btn btn-lg btn-pill btn-primary"
             type="submit"
@@ -59,10 +71,11 @@ class SignInForm extends Component {
             Sign In
           </button>
 
-          {this.state.error && <p className = "error">{this.state.error.message}</p>}
+          {this.state.error && (
+            <p className="error">{this.state.error.message}</p>
+          )}
           <PasswordForgetLink />
         </form>
-        
       </div>
     );
   }
@@ -71,14 +84,14 @@ class SignInForm extends Component {
 const validate = values => {
   const errors = {};
 
-  if(!values.email){
-    errors.email = "Enter a valid email"
+  if (!values.email) {
+    errors.email = "Enter a valid email";
   }
-  if(!values.password){
-    errors.password = "Enter a valid password"
+  if (!values.password) {
+    errors.password = "Enter a valid password";
   }
 
   return errors;
-}
+};
 
-export default reduxForm({validate, form: "SignInForm"})(SignInForm);
+export default reduxForm({ validate, form: "SignInForm" })(SignInForm);

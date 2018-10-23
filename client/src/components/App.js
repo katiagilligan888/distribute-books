@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 
 import Navigation from './Navigation'; 
 import LandingPage from './LandingPage';
-import SignUpPage from './SignUpPage';
+import SignUpForm from './SignUpPage';
 import SignInForm from './SignInPage';
 import PasswordForget from './PasswordForget';
 import BookFormPage from './BookFormPage';
@@ -25,7 +25,7 @@ const App = () => {
         <div>
             <Navigation  />
             <Route exact path = {routes.LANDING} component = {LandingPage} />
-            <Route path = {routes.SIGN_UP} component = {SignUpPage} />
+            <Route path = {routes.SIGN_UP} component = {SignUpForm} />
             <Route path = {routes.SIGN_IN} component = {SignInForm} />
             <Route path = {routes.PASSWORD_FORGET} component = {PasswordForget} />
             <Route path = {routes.BOOK_FORM} component = {BookFormPage} />
