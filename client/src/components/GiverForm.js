@@ -67,6 +67,36 @@ class GiverForm extends React.Component {
   }
 }
 
+const validate = values => {
+  const errors = {}
+  if(!values.firstName){
+    errors.firstName = "Please enter name"
+  }else if(values.firstName.length < 3){
+    errors.firstName = "First name needs to be at least 3 characters"
+  }else if(values.firstName > 20){
+    errors.firstName = "First name can't exceed 20 characters"
+  }
+
+  if(!values.lastName){
+    errors.lastName = "Please enter name"
+  }else if(values.lastName.length < 3){
+    errors.lastName = "Last name needs to be at least 3 characters"
+  }else if(values.lastName > 25){
+    errors.lastName = "Last name can't exceed 25 characters"
+  }
+
+  if(!values.email){
+    errors.email = "Please enter email"
+  }
+
+  if(!values.country){
+    errors.country = "Please enter country"
+  }
+
+  return errors;
+}
+
 export default reduxForm({
+  validate, 
   form: 'GiverForm'
 })(GiverForm);
