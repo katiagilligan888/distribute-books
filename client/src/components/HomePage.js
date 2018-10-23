@@ -39,6 +39,5 @@ const HomePage = () => {
   );
 };
 
-const authCondition = authUser => !!authUser;
 
-export default withAuthorization(authCondition)(HomePage);
+export default HomePage;

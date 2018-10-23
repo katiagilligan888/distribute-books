@@ -24,7 +24,7 @@ const App = () => {
     return (
         <div>
             <Navigation  />
-            <Route exact path = {routes.LANDING} component = {LandingPage} />
+            <Route exact path = {routes.LANDING} component = {HomePage} />
             <Route path = {routes.SIGN_UP} component = {SignUpForm} />
             <Route path = {routes.SIGN_IN} component = {SignInForm} />
             <Route path = {routes.PASSWORD_FORGET} component = {PasswordForget} />
