@@ -1,94 +1,65 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-
+import { Field, reduxForm} from 'redux-form'; 
 import { SignUpLink } from "./SignUpPage";
 import { PasswordForgetLink } from "./PasswordForget";
 import { auth } from "../firebase";
 import * as routes from "../constants/routes";
 
-const SignInPage = ({ history }) => (
-  <div className="sign-in-page">
-    <SignInForm history={history} />
-  </div>
-);
-
-const INITIAL_STATE = {
-  email: "",
-  password: "",
-  error: null
-};
-
 class SignInForm extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { ...INITIAL_STATE };
+  constructor(){
+    super(); 
+    this.state = {
+      error: ''
+    }
   }
 
-  onChangeHandler = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  };
+  renderField = field => {
+    return (
+      <div className = "form-group col-md-12">
+        <label>{field.label}</label>
+        <input className = "form-control"
+        type = {field.inputType}
+        {...field.input} />
+        {field.meta.touched ? (
+          <span className="error">{field.meta.error}</span>
+        ) : (
+          ""
+        )}
+        </div>
+    )
+  }
 
-  onSubmitHandler = event => {
-    const { email, password } = this.state;
-
+  onSubmit = values => {
     const { history } = this.props;
-
     auth
-      .doSignInWithEmailAndPassword(email, password)
+      .doSignInWithEmailAndPassword(values.email, values.password)
       .then(() => {
-        this.setState({ ...INITIAL_STATE });
         history.push(routes.HOME);
       })
       .catch(err => {
         this.setState({ error: err });
       });
-
-    event.preventDefault();
   };
 
   render() {
-    const { email, password, error } = this.state;
-
-    const isInvalid = password === "" || email === "";
-
+    const {handleSubmit} = this.props
     return (
       <div className="sign-in-form">
-        <form className="form" onSubmit={this.onSubmitHandler}>
+        <form className="form" onSubmit={handleSubmit(this.onSubmit)}>
           <h2>Sign In</h2>
-          <div className = "row">
-          <div className="form-group col-md-6">
-            <input
-              className="form-control"
-              value={email}
-              onChange={this.onChangeHandler}
-              type="text"
-              placeholder="Email Address"
-              name="email"
-            />
-          </div>
-          <div className="form-group col-md-6">
-            <input
-              className="form-control"
-              value={password}
-              onChange={this.onChangeHandler}
-              type="password"
-              name="password"
-              placeholder="Password"
-            />
-          </div>
+          <div className = "form-row">
+            <Field name = "email" component = {this.renderField} label = "Email Address" inputType = "text"/>
+            <Field name = "password" component = {this.renderField} label = "Password" inputType = "password" />
           </div> 
           <button
             className="button-sign-in btn btn-lg btn-pill btn-primary"
-            disabled={isInvalid}
             type="submit"
           >
             Sign In
           </button>
 
-          {error && <p>{error.message}</p>}
+          {this.state.error && <p className = "error">{this.state.error.message}</p>}
           <PasswordForgetLink />
         </form>
         
@@ -97,6 +68,17 @@ class SignInForm extends Component {
   }
 }
 
-export default withRouter(SignInPage);
+const validate = values => {
+  const errors = {};
 
-export { SignInForm };
+  if(!values.email){
+    errors.email = "Enter a valid email"
+  }
+  if(!values.password){
+    errors.password = "Enter a valid password"
+  }
+
+  return errors;
+}
+
+export default reduxForm({validate, form: "SignInForm"})(SignInForm);
