@@ -4,6 +4,7 @@ import * as routes from "../constants/routes";
 import { auth, db } from "../firebase";
 import bg from "../background.jpg";
 import { Field, reduxForm } from "redux-form";
+import { toast } from 'react-toastify'; 
 
 class SignUpForm extends React.Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class SignUpForm extends React.Component {
         // Create user in database
         db.doCreateUser(authUser.user.uid, values.username, values.email, values.temple, values.city)
           .then(() => {
+            toast.info("Welcome!")
             this.props.history.push(routes.HOME);
           })
           .catch(error => {
