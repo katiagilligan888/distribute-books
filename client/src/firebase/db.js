@@ -3,6 +3,7 @@ import { db } from './firebase';
 const BOOK_DISTRIBUTIONS = 'book-distributions';
 const BOOK_SCORES = 'book-scores';
 const USERS = 'users';
+const GIVERS = 'givers'; 
 
 export const doCreateUser = (userid, username, email, temple, city) => {
   return db.collection(USERS).doc(userid).set({
@@ -43,4 +44,13 @@ export const doCreateBookScore = (userid, epochDate, humanDate, distributionType
     books: books,
     bookCount: bookCount
   });
+}
+
+export const doCreateGiver = (firstName, lastName, email, country) => {
+  return db.collection(GIVERS).doc(email).set({
+    firstName, 
+    lastName, 
+    email, 
+    country
+  })
 }
