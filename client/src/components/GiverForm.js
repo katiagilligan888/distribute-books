@@ -8,7 +8,6 @@ class GiverForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      isVerified: true,
       latitude: '',
       longitude: ''
     }
@@ -47,21 +46,13 @@ class GiverForm extends React.Component {
   }
 
   onSubmit = (values) => {
-
-    if(this.state.isVerified){
       db.doCreateGiver(values.firstName, values.lastName, values.email, values.country, this.state.latitude, this.state.longitude).then(() => {
         toast.info("Thank you for becoming a Giver")
         this.props.reset(); 
       })
-    }else {
-      toast.info("Confirm you are human to submit form!")
+  
     }
-  }
-
-  // verifyCallback = () => {
-  //   this.setState({ isVerified: true})
-  // }
-
+    
   render() {
     return (
       <div className="giver-form">
@@ -71,12 +62,6 @@ class GiverForm extends React.Component {
           <Field name = "lastName" label = "Last Name" inputType = "text" component = {this.renderField} />
           <Field name = "email" label = "Email" inputType = "text" component = {this.renderField} />
           <Field name = "country" label = "Country" inputType = "text" component = {this.renderField} />
-          {/* <Recaptcha
-            sitekey="6Ldtg3YUAAAAAHj5KFlLRPBFIT_QGhoBcXTgKwPw"
-            render="explicit"
-            theme= "dark"
-            verifyCallback = {this.verifyCallback}
-          /> */}
           <button className = "btn btn-primary btn-pill">Sign Up</button>
         </form>
       </div>
