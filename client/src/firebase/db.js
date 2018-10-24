@@ -46,11 +46,13 @@ export const doCreateBookScore = (userid, epochDate, humanDate, distributionType
   });
 }
 
-export const doCreateGiver = (firstName, lastName, email, country) => {
+export const doCreateGiver = (firstName, lastName, email, country, lat, long) => {
   return db.collection(GIVERS).doc(email).set({
     firstName, 
     lastName, 
     email, 
-    country
+    country, 
+    lat, 
+    long,
   })
 }

@@ -8,7 +8,23 @@ class GiverForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      isVerified: false
+      isVerified: false,
+      latitude: '',
+      longitude: ''
+    }
+  }
+
+  getGeoLocation ()  {
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(position =>{
+        let lat = position.coords.latitude; 
+        let long = position.coords.longitude;
+
+        this.setState({
+          latitude: lat, 
+          longitude: long
+        })
+      })
     }
   }
 
@@ -31,8 +47,9 @@ class GiverForm extends React.Component {
   }
 
   onSubmit = (values) => {
+
     if(this.state.isVerified){
-      db.doCreateGiver(values.firstName, values.lastName, values.email, values.country).then(() => {
+      db.doCreateGiver(values.firstName, values.lastName, values.email, values.country, this.state.latitude, this.state.longitude).then(() => {
         toast.info("Thank you for becoming a Giver")
         this.props.reset(); 
       })
