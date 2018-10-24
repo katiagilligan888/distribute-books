@@ -8,7 +8,7 @@ class GiverForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      isVerified: false,
+      isVerified: true,
       latitude: '',
       longitude: ''
     }
@@ -58,9 +58,9 @@ class GiverForm extends React.Component {
     }
   }
 
-  verifyCallback = () => {
-    this.setState({ isVerified: true})
-  }
+  // verifyCallback = () => {
+  //   this.setState({ isVerified: true})
+  // }
 
   render() {
     return (
@@ -71,12 +71,12 @@ class GiverForm extends React.Component {
           <Field name = "lastName" label = "Last Name" inputType = "text" component = {this.renderField} />
           <Field name = "email" label = "Email" inputType = "text" component = {this.renderField} />
           <Field name = "country" label = "Country" inputType = "text" component = {this.renderField} />
-          <Recaptcha
+          {/* <Recaptcha
             sitekey="6Ldtg3YUAAAAAHj5KFlLRPBFIT_QGhoBcXTgKwPw"
             render="explicit"
             theme= "dark"
             verifyCallback = {this.verifyCallback}
-          />
+          /> */}
           <button className = "btn btn-primary btn-pill">Sign Up</button>
         </form>
       </div>
