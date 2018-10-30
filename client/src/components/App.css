@@ -1,4 +1,9 @@
 /* Sign Up Page CSS */
+
+.logo{
+  width: 20%; 
+}
+
 .nav-auth ul {
   display: flex; 
   justify-content: space-between;

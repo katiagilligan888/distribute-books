@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SignOutButton from "./SignOut";
 import * as routes from "../constants/routes";
 import AuthUserContext from "./AuthUserContext"; 
+import logo from '../logo.png'
 
 const Navigation = () => {
   return (
@@ -20,7 +21,7 @@ const NavigationAuth = () => {
       <ul>
         <li>
           <h2>
-            <Link to={routes.LANDING}>Distribute Books</Link>
+            <Link to={routes.LANDING}><img className = "logo" src ={logo} /></Link>
           </h2>
         </li>
         <div className="nav-links-auth">
@@ -46,7 +47,7 @@ const NavigationNonAuth = () => {
       <ul>
         <li>
           <h2>
-            <Link to={routes.LANDING}> Distribute Books</Link>{" "}
+            <Link to={routes.LANDING}><img className = "logo" src = {logo} /></Link>{" "}
           </h2>
         </li>
         <li>
