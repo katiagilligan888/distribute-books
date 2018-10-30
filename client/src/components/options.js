@@ -1,4 +1,5 @@
-export const options=[
+module.exports = {
+  languageOptions: [
     { value: "Amharic", label: "Amharic" },
     { value: "Arabic", label: "Arabic" },
     { value: "Armenian", label: "Armenian" },
@@ -89,4 +90,25 @@ export const options=[
     { value: "Uzbekh", label: "Uzbekh" },
     { value: "Zhosa", label: "Zhosa" }, 
     {value: "English", label: "English"}
-  ]
+  ],
+  distributeOptions: [
+    { value: 'Door To Door', label: 'Door to Door'}, 
+    { value: 'Street Sankirtan', label: 'Street Sankirtan'},
+    { value: 'Booth Multicultural Festival', label: 'Booth Multicultural Festival'},
+    { value: 'Motel Gita placement', label: 'Motel Gita placement'},
+    { value: 'Hospital placement', label: 'Hospital placement'},
+    { value: 'Other Placements', label: 'Other Placements'},
+    { value: 'Factory placement', label: 'Factory placement'},
+    { value: 'Base Temple Distribution', label: 'Base Temple Distribution'},
+    { value: 'Yoga Studios placement', label: 'Yoga Studios placement'},
+    { value: 'Smart Box', label: 'Smart Box'},
+    { value: 'Music Festival', label: 'Music Festival'},
+    { value: 'Individual', label: 'Individual'},
+    { value: 'Traveling Sankirtan', label: 'Traveling Sankirtan'},
+    { value: 'College Campus', label: 'College Campus'},
+  ],
+  bookTitles: [{"value":"Srimad-Bhagavatam 1.1","label":"Srimad-Bhagavatam 1.1"},{"value":"Bhagavad-gita 1972 Edition","label":"Bhagavad-gita 1972 Edition"},{"value":"Krsna Book Hard One Volume","label":"Krsna Book Hard One Volume"},{"value":"Journey of Self Discovery (Hard)","label":"Journey of Self Discovery (Hard)"},{"value":"Science of Self-Realization (Hard)","label":"Science of Self-Realization (Hard)"},{"value":"Teachings of Lord Caitanya (Flexibind)","label":"Teachings of Lord Caitanya (Flexibind)"},{"value":"Hiding in Unnatural Happiness","label":"Hiding in Unnatural Happiness"},{"value":"Science of Self-Realization (Soft)","label":"Science of Self-Realization (Soft)"},{"value":"Vanity Karma: Ecclesiastes, the Bhagavad-gita, and the meaning of life","label":"Vanity Karma: Ecclesiastes, the Bhagavad-gita, and the meaning of life"},{"value":"Dharma - The Way of Transcendence","label":"Dharma - The Way of Transcendence"},{"value":"Nectar of Instruction","label":"Nectar of Instruction"},{"value":"Sri Isopanisad","label":"Sri Isopanisad"},{"value":"Chant and Be Happy","label":"Chant and Be Happy"},{"value":"Higher Taste","label":"Higher Taste"},{"value":"Coming Back","label":"Coming Back"},{"value":"Light of the Bhagavata","label":"Light of the Bhagavata"},{"value":"Introduction to Bhagavad-gita","label":"Introduction to Bhagavad-gita"},{"value":"Easy Journey to Other Planets","label":"Easy Journey to Other Planets"},{"value":"Spiritual Yoga","label":"Spiritual Yoga"},{"value":"Matchless Gifts","label":"Matchless Gifts"},{"value":"Topmost Yoga (Soft)","label":"Topmost Yoga (Soft)"},{"value":"Beyond Birth and Death","label":"Beyond Birth and Death"},{"value":"The Perfection of Yoga","label":"The Perfection of Yoga"},{"value":"Perfect Questions Perfect Answers (Soft)","label":"Perfect Questions Perfect Answers (Soft)"},{"value":"Raja Vidya","label":"Raja Vidya"},{"value":"Bhakti Yoga - The Art of Eternal Love","label":"Bhakti Yoga - The Art of Eternal Love"}]
+}
+
+
+

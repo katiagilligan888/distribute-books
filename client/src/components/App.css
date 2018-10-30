@@ -65,6 +65,9 @@
 
 .book-fields{
   width: 100%; 
+  border: 1px solid #ccc;
+  padding: 9px;
+
 }
 
 .book-form-title{
@@ -87,7 +90,6 @@
 
 .book-headline{
   margin-top: 20px; 
-  color: lightgreen; 
 }
 
 .statcard{

@@ -6,7 +6,7 @@ import firebase from "firebase";
 import * as routes from "../constants/routes";
 import moment from "moment";
 import Select from "react-select";
-import { options } from './languageOptions'; 
+import { languageOptions, distributeOptions, bookTitles } from './options'; 
 
 const customStyles = {
   control: (base, state) => ({
@@ -75,7 +75,7 @@ class BookForm extends React.Component {
                     value={props.input.value}
                     onChange={props.input.onChange}
                     onBlur={() => props.input.onBlur(props.input.value)}
-                    options = {options}
+                    options = {languageOptions}
                     placeholder="Select Language"
                     simpleValue
                   />
@@ -85,7 +85,7 @@ class BookForm extends React.Component {
               <Field
                 name={`${book}.number`}
                 component={this.renderField}
-                label="Book Number"
+                label="Number of Books"
                 inputType="number"
               />
               <button
@@ -100,7 +100,7 @@ class BookForm extends React.Component {
         })}
         <div className="text-center">
           <button
-            className=" add-book-button btn btn-warning btn-lg"
+            className=" add-book-button btn btn-info"
             type="button"
             onClick={() => fields.push({})}
           >
@@ -147,11 +147,10 @@ class BookForm extends React.Component {
     return (
       <div className="bookform">
         <div className="book-form-title">
-          <h1>Book Form </h1>
+          <h1>Submit your latest book scores</h1>
           <h2>
             {" "}
-            <strong>Instructions:</strong> Fill out the form with the
-            information about the latest booksale{" "}
+            Fill out the form below. For each language and book type variation, click "Add Book". At the end, click "Submit" to finalize your scores.{" "}
           </h2>
         </div>
         <form onSubmit={handleSubmit(this.onSubmit)}>
@@ -185,7 +184,7 @@ class BookForm extends React.Component {
             </button>
             <button
               type="button"
-              className="btn btn-secondary"
+              className="btn btn-danger btn-lg"
               onClick={this.props.reset}
             >
               Clear Values

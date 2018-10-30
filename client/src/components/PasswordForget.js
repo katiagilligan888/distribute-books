@@ -54,7 +54,7 @@ class PasswordForgetForm extends React.Component {
     return (
       <div className="forgot-password-form">
         <h1>Forgot Password </h1>
-        <form onSubmit={this.onSubmitHandler}>
+        <form className="form "onSubmit={this.onSubmitHandler}>
           <input
             onChange={this.onChangeHandler}
             type="text"

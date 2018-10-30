@@ -74,7 +74,7 @@ class SignInForm extends Component {
           {this.state.error && (
             <p className="error">{this.state.error.message}</p>
           )}
-          <PasswordForgetLink />
+          {/* <PasswordForgetLink /> */}
         </form>
       </div>
     );
