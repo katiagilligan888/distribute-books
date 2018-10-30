@@ -8,30 +8,6 @@ import moment from "moment";
 import Select from "react-select";
 import { languageOptions, distributeOptions, bookTitles } from './options'; 
 
-const customStyles = {
-  control: (base, state) => ({
-    ...base,
-    background: "#434857"
-  }),
-  placeholder: styles => ({
-    ...styles,
-    color: "white"
-  }),
-  input: styles => ({
-    ...styles,
-    color: "white"
-  }),
-  singleValue: styles => ({
-    ...styles,
-    color: "white"
-  }),
-  option: styles => ({
-    ...styles,
-    color: "white",
-    backgroundColor: "#434857"
-  })
-};
-
 class BookForm extends React.Component {
   renderField = field => {
     return (
@@ -69,7 +45,6 @@ class BookForm extends React.Component {
                 name={`${book}.language`}
                 const component={props => (
                   <Select
-                    styles={customStyles}
                     label="Book Language"
                     className="book-language"
                     value={props.input.value}
