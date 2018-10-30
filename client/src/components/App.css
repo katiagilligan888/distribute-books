@@ -50,7 +50,7 @@
 
 .nav-links-auth li a:hover{
   text-decoration: none; 
-  color: white; 
+  color: black;  
 }
 
 .nav-auth ul li h2{
@@ -91,11 +91,11 @@
 }
 
 .statcard{
-  margin: 20px; 
+  margin: 4%; 
 }
 
 .map{
-  margin-left: 5%; 
+  margin-left: 7%; 
 }
 
 .sign-up-form form{
@@ -166,5 +166,19 @@
   margin-right: 10px; 
 }
 
+.giver-form{
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+.giver-form h3{
+  text-align: center; 
+}
+
+.giver-logo {
+  width: 80%; 
+}
 
 

@@ -14,6 +14,7 @@ class HomePage extends React.Component {
   render(){
     return (
       <div>
+        <div className = "container">
         <div className=" row stats-for-data justify-content-center">
           <div className="statcard statcard-primary p-4 mb-2 col-md-2">
             <h3 className="statcard-number">5</h3>
@@ -35,13 +36,13 @@ class HomePage extends React.Component {
         <hr />
         <div className="map-and-form row">
           <div className="map col-md-8">
-            <p> This is where the map will be located </p>
           </div>
           <div className="form col-md-3">
             <GiverForm />
           </div>
         </div>
         <hr />
+        </div>
       </div>
     );
   }

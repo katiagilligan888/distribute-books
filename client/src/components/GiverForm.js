@@ -3,6 +3,7 @@ import {Field, reduxForm} from 'redux-form';
 import Recaptcha from 'react-recaptcha';  
 import { toast } from 'react-toastify'; 
 import { db } from "../firebase";
+import giverLogo from '../giver_logo.png'; 
 
 class GiverForm extends React.Component {
   constructor() {
@@ -37,8 +38,8 @@ class GiverForm extends React.Component {
   render() {
     return (
       <div className="giver-form">
-        <form onSubmit = {this.props.handleSubmit(this.onSubmit)}>
-          <h3> Sign up to Be a Giver </h3>
+        <img className = "giver-logo" src = {giverLogo} />
+        <form className = "giver-form" onSubmit = {this.props.handleSubmit(this.onSubmit)}>
           <Field name = "firstName" label = "First Name" inputType = "text" component = {this.renderField} />
           <Field name = "lastName" label = "Last Name" inputType = "text" component = {this.renderField} />
           <Field name = "email" label = "Email" inputType = "text" component = {this.renderField} />
