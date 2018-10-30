@@ -168,7 +168,7 @@
   margin-right: 10px; 
 }
 
-.giver-form{
+/* .giver-form{
   display: flex; 
   flex-direction: column; 
   align-items: center; 
@@ -177,10 +177,10 @@
 
 .giver-form h3{
   text-align: center; 
-}
+} */
 
 .giver-logo {
-  width: 80%; 
+  width: 100%; 
 }
 
 

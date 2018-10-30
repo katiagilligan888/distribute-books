@@ -44,7 +44,7 @@ class GiverForm extends React.Component {
           <Field name = "lastName" label = "Last Name" inputType = "text" component = {this.renderField} />
           <Field name = "email" label = "Email" inputType = "text" component = {this.renderField} />
           <Field name = "country" label = "Country" inputType = "text" component = {this.renderField} />
-          <button className = "btn btn-primary btn-pill">Sign Up</button>
+          <button className = "btn btn-primary mx-auto d-block">Sign Up</button>
         </form>
       </div>
     );
