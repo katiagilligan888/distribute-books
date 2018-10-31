@@ -31,7 +31,7 @@ const App = () => {
             <Route path = {routes.BOOK_FORM} component = {BookFormPage} />
             <Route path = {routes.ACCOUNT} component = {AccountPage} />
             <Route path = {routes.HOME} component = {HomePage} />
-            <ToastContainer position="top-center" />
+            <ToastContainer position="top-right" />
         </div>
     )
 }

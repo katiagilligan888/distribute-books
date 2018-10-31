@@ -126,7 +126,7 @@ class BookForm extends React.Component {
         )
       )
       .then(() => {
-        toast.success("Form successfully submitted!");
+        toast.info("Form successfully submitted!");
         this.props.reset();
       });
   };
