@@ -24,7 +24,7 @@ class SignInForm extends Component {
           {...field.input}
         />
         {field.meta.touched ? (
-          <span className="error">{field.meta.error}</span>
+          <span className="text-danger">{field.meta.error}</span>
         ) : (
           ""
         )}
@@ -72,7 +72,7 @@ class SignInForm extends Component {
           </button>
 
           {this.state.error && (
-            <p className="error">{this.state.error.message}</p>
+            <p className="text-danger">{this.state.error.message}</p>
           )}
           {/* <PasswordForgetLink /> */}
         </form>

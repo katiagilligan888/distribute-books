@@ -10,6 +10,14 @@ class GiverForm extends React.Component {
     super();
   }
 
+  componentDidMount(props) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.setState(position.coords);
+    }, (err) => {
+      console.log('Geolocation blocked: ' + err);
+    })
+  }
+
   renderField = field => {
     return (
       <div className="form-group col-md-12">
@@ -20,7 +28,7 @@ class GiverForm extends React.Component {
           {...field.input}
         />
         {field.meta.touched ? (
-          <span className="error">{field.meta.error}</span>
+          <span className="text-danger">{field.meta.error}</span>
         ) : (
           ""
         )}

@@ -19,7 +19,7 @@ class BookForm extends React.Component {
           {...field.input}
         />
         {field.meta.touched ? (
-          <span className="error">{field.meta.error}</span>
+          <span className="text-danger">{field.meta.error}</span>
         ) : (
           ""
         )}
@@ -92,7 +92,7 @@ class BookForm extends React.Component {
           >
             + Add Book
           </button>
-          {submitFailed && error && <div className="error">{error}</div>}
+          {submitFailed && error && <div className="text-danger">{error}</div>}
         </div>
       </div>
     );
