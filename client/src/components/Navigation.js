@@ -38,7 +38,7 @@ const NavigationNonAuth = () => {
       <div className = "container">
             <Link  className="navbar-brand" to={routes.LANDING}><img className = "logo" src = {logo} /></Link>{" "}
           <Link to={routes.SIGN_IN}>
-            <button type="button" className="btn btn-pill btn-secondary">Sign In</button>
+            <button type="button" className="btn btn-primary">Sign In</button>
           </Link>
           </div>
     </nav>

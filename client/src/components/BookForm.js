@@ -33,8 +33,8 @@ class BookForm extends React.Component {
         {fields.map((book, index, fields) => {
           return (
             <div className="book-fields" key={index}>
-              <h4 className="book-headline">Book #{index + 1}</h4>
               <div className="form-group col-md-12">
+                <h4 className="book-headline">Book #{index + 1}</h4>
                 <label>Book Title</label>
                 <Field
                   name={`${book}.title`}
@@ -76,7 +76,7 @@ class BookForm extends React.Component {
               />
               <button
                 onClick={() => fields.remove(index)}
-                className="btn btn-danger btn-sm"
+                className="btn btn-danger btn-sm remove-book-btn"
                 type="button"
               >
                 Remove Book
@@ -135,15 +135,14 @@ class BookForm extends React.Component {
     const { handleSubmit } = this.props;
 
     return (
-      <div className="bookform">
-        <div className="book-form-title">
-          <h1>Submit your latest book scores</h1>
-          <h2>
+      <div className="container margin-header">
+        <div className="book-form-title text-center">
+          <h3>
             {" "}
             Fill out the form below. For each language and book type variation,
             click "Add Book". At the end, click "Submit" to finalize your
             scores.{" "}
-          </h2>
+          </h3>
         </div>
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <div className="form-row">
@@ -181,7 +180,7 @@ class BookForm extends React.Component {
           <div className=" buttons-submit-clear text-center">
             <button
               type="submit"
-              className=" submit-book-form btn btn-primary btn-lg"
+              className="btn btn-primary btn-lg"
             >
               Submit
             </button>
