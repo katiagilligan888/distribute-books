@@ -8,11 +8,14 @@ import giverLogo from '../giver_logo.png';
 class GiverForm extends React.Component {
   constructor() {
     super();
+    this.state = {
+      coords: '',
+    };
   }
 
   componentDidMount(props) {
     navigator.geolocation.getCurrentPosition((position) => {
-      this.setState(position.coords);
+      this.setState({ coords: position.coords });
     }, (err) => {
       console.log('Geolocation blocked: ' + err);
     })
