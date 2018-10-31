@@ -1,25 +1,18 @@
 import React from "react";
 import { db, auth } from "../firebase";
-import { Field, FieldArray, reduxForm, reset} from "redux-form";
-import { toast } from 'react-toastify'
+import { Field, FieldArray, reduxForm, reset } from "redux-form";
+import { toast } from "react-toastify";
 import firebase from "firebase";
 import * as routes from "../constants/routes";
 import moment from "moment";
 import Select from "react-select";
-import { languageOptions, distributeOptions, bookTitles } from './options'; 
-
-// const customStyles = {
-//   container : () => ({
-//     margin: 10
-//   })
-  
-// }
+import { languageOptions, distributeOptions, bookTitles } from "./options";
 
 class BookForm extends React.Component {
   renderField = field => {
     return (
       <div className="book-input form-group col-md-12">
-        <label className = "book-label">{field.label}</label>
+        <label className="book-label">{field.label}</label>
         <input
           className="form-control"
           type={field.inputType}
@@ -41,30 +34,39 @@ class BookForm extends React.Component {
           return (
             <div className="book-fields" key={index}>
               <h4 className="book-headline">Book #{index + 1}</h4>
-              <Field
-                name={`${book}.title`}
-                component={this.renderField}
-                label="Book Title"
-                inputType="text"
-              />
-              <div className = "form-group col-md-12">
-              <label className = "book-language-label">Book Language</label>
-              <Field
-                name={`${book}.language`}
-                const component={props => (
-                  <Select
-                    // styles = {customStyles}
-                    className="book-language form-control"
-                    value={props.input.value}
-                    onChange={props.input.onChange}
-                    onBlur={() => props.input.onBlur(props.input.value)}
-                    options = {languageOptions}
-                    placeholder="Select Language"
-                    simpleValue
-                  />
-                )}
-                
-              />
+              <div className="form-group col-md-12">
+                <label>Book Title</label>
+                <Field
+                  name={`${book}.title`}
+                  className="form-control"
+                  component={props => (
+                    <Select
+                      value={props.input.value}
+                      onChange={props.input.onChange}
+                      onBlur={() => props.input.onBlur(props.input.value)}
+                      options={bookTitles}
+                      placeholder="Select Book"
+                      simpleValue
+                    />
+                  )}
+                />
+              </div>
+              <div className="form-group col-md-12">
+                <label className="book-language-label">Book Language</label>
+                <Field
+                  name={`${book}.language`}
+                  className="form-control"
+                  component={props => (
+                    <Select
+                      value={props.input.value}
+                      onChange={props.input.onChange}
+                      onBlur={() => props.input.onBlur(props.input.value)}
+                      options={languageOptions}
+                      placeholder="Select Language"
+                      simpleValue
+                    />
+                  )}
+                />
               </div>
               <Field
                 name={`${book}.number`}
@@ -112,17 +114,21 @@ class BookForm extends React.Component {
           number: book.number
         };
       })
-    ).then(() => db.doCreateBookScore(
-      user.uid,
-      `${moment(`${values.date} 12:00`, "YYYY/MM/DD H:mm").valueOf()}`,
-      values.date,
-      values.typeOfDistribution,
-      values.numberDistributors,
-      values.books
-    )).then(() => {
-      toast.success("Form successfully submitted!")
-      this.props.reset()
-    })
+    )
+      .then(() =>
+        db.doCreateBookScore(
+          user.uid,
+          `${moment(`${values.date} 12:00`, "YYYY/MM/DD H:mm").valueOf()}`,
+          values.date,
+          values.typeOfDistribution,
+          values.numberDistributors,
+          values.books
+        )
+      )
+      .then(() => {
+        toast.success("Form successfully submitted!");
+        this.props.reset();
+      });
   };
 
   render() {
@@ -134,7 +140,9 @@ class BookForm extends React.Component {
           <h1>Submit your latest book scores</h1>
           <h2>
             {" "}
-            Fill out the form below. For each language and book type variation, click "Add Book". At the end, click "Submit" to finalize your scores.{" "}
+            Fill out the form below. For each language and book type variation,
+            click "Add Book". At the end, click "Submit" to finalize your
+            scores.{" "}
           </h2>
         </div>
         <form onSubmit={handleSubmit(this.onSubmit)}>
@@ -151,12 +159,23 @@ class BookForm extends React.Component {
               label="Number of Distributors"
               inputType="number"
             />
-            <Field
-              name="typeOfDistribution"
-              component={this.renderField}
-              label="Type of Distribution"
-              inputType="text"
-            />
+            <div className="form-group col-md-12">
+              <label>Type of Distribution </label>
+              <Field
+                name="typeOfDistribution"
+                className="form-control"
+                component={props => (
+                  <Select
+                    value={props.input.value}
+                    onChange={props.input.onChange}
+                    onBlur={() => props.input.onBlur(props.input.value)}
+                    options={distributeOptions}
+                    placeholder="Select Type"
+                    simpleValue
+                  />
+                )}
+              />
+            </div>
             <FieldArray name="books" component={this.renderBooks} />
           </div>
           <div className=" buttons-submit-clear text-center">
