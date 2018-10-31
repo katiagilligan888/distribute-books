@@ -40,7 +40,7 @@ class GiverForm extends React.Component {
   }
 
   onSubmit = (values) => {
-    db.doCreateGiver(values.firstName, values.lastName, values.email, values.country).then(() => {
+    db.doCreateGiver(values.firstName, values.lastName, values.email, values.country, this.state.coords.longitude, this.state.coords.latitude).then(() => {
       toast.info("Thank you for becoming a Giver")
       this.props.reset(); 
     })
