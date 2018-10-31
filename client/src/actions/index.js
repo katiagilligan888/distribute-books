@@ -1,4 +1,6 @@
 import moment from 'moment'; 
+import firebase from 'firebase'; 
+require('firebase/firestore'); 
 
 export const setDaysUntil = () => {
     const todaysDate = moment()
@@ -9,3 +11,16 @@ export const setDaysUntil = () => {
         payload: daysUntil
     }
 }
+
+// export const setGiverNumber = () => {
+//     let givers = []
+//     firebase.firestore().collection('givers').onSnapshot(snapshot => {
+//         snapshot.forEach((doc) => {
+//             givers.push(doc.data())
+//         })
+//     })
+//     return {
+//         type: 'GIVERS_NUMBER_QUERY',
+//         payload: givers.length
+//     }
+// }

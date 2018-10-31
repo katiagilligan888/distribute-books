@@ -5,13 +5,19 @@ import { connect } from 'react-redux';
 import { setDaysUntil } from '../actions'; 
 
 class HomePage extends React.Component {
-  getDaysUntil = () => {
-    const obj = setDaysUntil()
-    return obj.payload
+  constructor(props){
+    super(props)
+  }
+
+  componentDidMount = () => {
+    this.props.setDaysUntil()
+      
   }
 
 
   render(){
+
+    console.log(this.props.daysUntil)
     return (
         <div className = "container margin-header">
         <div className="row statcards">
@@ -29,14 +35,14 @@ class HomePage extends React.Component {
           </div>
           <div className="col-md-3">
           <div className="statcard statcard-warning p-4">
-            <h3  className="statcard-number">{this.getDaysUntil()}</h3>
-            <span className="statcard-desc">Days Left until 1/1/2019</span>
+            <h3  className="statcard-number"></h3>
+            <span className="statcard-desc"># of Givers</span>
           </div>
           </div>
           <div className="col-md-3">
           <div className="statcard statcard-danger p-4">
-            <h3  className="statcard-number">{this.getDaysUntil()}</h3>
-            <span className="statcard-desc">Days Left until 1/1/2019</span>
+            <h3  className="statcard-number">{this.props.daysUntil}</h3>
+            <span className="statcard-desc">Days until 1/2019</span>
           </div>
           </div>
         </div>
@@ -54,5 +60,12 @@ class HomePage extends React.Component {
   
 };
 
+const mapStateToProps = state => {
+  return {
+    giverNum: state.giverNum,
+    daysUntil: state.daysUntil
+  }
+}
 
-export default connect(null, { setDaysUntil })(HomePage);
+
+export default connect(mapStateToProps, { setDaysUntil })(HomePage);
