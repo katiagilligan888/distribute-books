@@ -61,9 +61,10 @@ class HomePage extends React.Component {
 };
 
 const mapStateToProps = state => {
+  console.log(state)
   return {
-    giverNum: state.giverNum,
-    daysUntil: state.daysUntil
+    giverNum: state.appReducer.giverNum,
+    daysUntil: state.appReducer.daysUntil
   }
 }
 

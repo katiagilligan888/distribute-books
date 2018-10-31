@@ -6,6 +6,8 @@ export const setDaysUntil = () => {
     const todaysDate = moment()
     const eventDate = moment("2019-01-01")
     const daysUntil = eventDate.diff(todaysDate, 'days')
+    console.log(daysUntil)
+    console.log(typeof daysUntil)
     return {
         type: 'DAYS_UNTIL', 
         payload: daysUntil
