@@ -8,11 +8,18 @@ import moment from "moment";
 import Select from "react-select";
 import { languageOptions, distributeOptions, bookTitles } from './options'; 
 
+const customStyles = {
+  container : () => ({
+    margin: 10
+  })
+  
+}
+
 class BookForm extends React.Component {
   renderField = field => {
     return (
-      <div className="form-group col-md-12">
-        <label>{field.label}</label>
+      <div className="book-input form-group col-md-12">
+        <label className = "book-label">{field.label}</label>
         <input
           className="form-control"
           type={field.inputType}
@@ -40,12 +47,12 @@ class BookForm extends React.Component {
                 label="Book Title"
                 inputType="text"
               />
-              <label>Book Language</label>
+              <label className = "book-language-label">Book Language</label>
               <Field
                 name={`${book}.language`}
                 const component={props => (
                   <Select
-                    label="Book Language"
+                    styles = {customStyles}
                     className="book-language"
                     value={props.input.value}
                     onChange={props.input.onChange}

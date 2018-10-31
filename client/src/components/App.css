@@ -183,4 +183,16 @@
   width: 100%; 
 }
 
+.book-input{
+  margin-top: 20px; 
+  margin-bottom: 10px; 
+  width: 100%; 
+}
 
+.book-language-label{
+  margin-left: 10px;  
+}
+
+.book-label{
+  margin-bottom: 15px; 
+}
