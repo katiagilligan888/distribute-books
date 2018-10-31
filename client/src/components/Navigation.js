@@ -17,46 +17,31 @@ const Navigation = () => {
 
 const NavigationAuth = () => {
   return (
-    <div className="nav-auth">
-      <ul>
-        <li>
-          <h2>
-            <Link to={routes.LANDING}><img className = "logo" src ={logo} /></Link>
-          </h2>
-        </li>
-        <div className="nav-links-auth">
-          <li>
-            <Link to={routes.HOME}>Home</Link>
-          </li>
-          {/* <li>
-            <Link to={routes.ACCOUNT}>Account</Link>
-          </li> */}
-          <li>
-            <Link to={routes.BOOK_FORM}>Book Form</Link>
-          </li>
+   
+    <nav className="navbar navbar-expand-sm navbar-light bg-light justify-content-between">
+     <div className = "container">
+      <Link className="navbar-brand" to={routes.LANDING}><img className = "logo" src ={logo} /></Link>
+      <div className="navbar-nav d-flex flex-row justify-content-between">
+            <Link className="nav-item nav-link" to={routes.HOME}>Home</Link>
+            <Link className="nav-item nav-link" to={routes.BOOK_FORM}>Book Form</Link>
           <SignOutButton />
-        </div>
-      </ul>
-    </div>
+      </div>
+      </div>
+    </nav>
+   
   );
 };
 
 const NavigationNonAuth = () => {
   return (
-    <div className="nav">
-      <ul>
-        <li>
-          <h2>
-            <Link to={routes.LANDING}><img className = "logo" src = {logo} /></Link>{" "}
-          </h2>
-        </li>
-        <li>
+    <nav className="navbar navbar-expand-sm navbar-light bg-light justify-content-between">
+      <div className = "container">
+            <Link  className="navbar-brand" to={routes.LANDING}><img className = "logo" src = {logo} /></Link>{" "}
           <Link to={routes.SIGN_IN}>
             <button type="button" className="btn btn-pill btn-secondary">Sign In</button>
           </Link>
-        </li>
-      </ul>
-    </div>
+          </div>
+    </nav>
   );
 };
 export default Navigation;

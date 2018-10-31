@@ -1,62 +1,10 @@
 /* Sign Up Page CSS */
 
 .logo{
-  width: 20%; 
+  width: 150px; 
+  height: 50px; 
 }
 
-.nav-auth ul {
-  display: flex; 
-  justify-content: space-between;
-  margin-top: 20px; 
-}
-
-.nav-auth ul li{
-  list-style-type: none; 
-}
-
-.nav ul{
-  width: 100%; 
-  display: flex; 
-  justify-content: space-between; 
-}
-
-.nav ul li {
-  list-style-type: none; 
-  margin-right: 20px; 
-  margin-top: 20px; 
-}
-
-.nav ul li h2{
-  font-size: 25px; 
-}
-
-.nav ul li h2:hover{
-  text-decoration: none; 
-}
-
-.nav-links-auth{
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-  margin-right: 20px;
-  list-style-type: none; 
-  font-size: 17px; 
-}
-
-.nav-links-auth li{
-  margin-right: 20px; 
- 
-}
-
-.nav-links-auth li a:hover{
-  text-decoration: none; 
-  color: black;  
-}
-
-.nav-auth ul li h2{
-  font-size: 25px; 
-  list-style-type: none; 
-}
 
 .bookform {
   margin: 40px auto; 
