@@ -32,7 +32,7 @@ class HomePage extends React.Component {
           </div>
           <div className="col-md-3">
             <div className="statcard statcard-warning p-4">
-              <h3 className="statcard-number">{this.props.giverNum}</h3>
+              <h3 className="statcard-number">{this.props.givers.length}</h3>
               <span className="statcard-desc"># of Givers</span>
             </div>
           </div>
@@ -57,7 +57,7 @@ class HomePage extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    giverNum: state.appReducer.giverNum,
+    givers: state.appReducer.givers,
     daysUntil: state.appReducer.daysUntil
   };
 };

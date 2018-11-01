@@ -23,14 +23,17 @@ export const fetchingGivers = () => {
     dispatch({ type: "FETCHING_GIVERS" });
     request
       .then(querySnapshot => {
+        let givers = [];
+        querySnapshot.forEach((doc) => {
+          givers.push(doc.data());
+        })
         dispatch({
           type: "FETCHED_GIVERS",
-          payload: querySnapshot.docs.length
+          payload: givers,
         });
-        console.log(querySnapshot.docs.length);
       })
       .catch(err => {
         dispatch({ type: "ERROR", payload: err });
       });
-  };
+  }
 };

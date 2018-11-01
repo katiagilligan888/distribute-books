@@ -1,6 +1,6 @@
 const initialState = {
   fetchingGivers: false,
-  giverNum: "",
+  givers: [],
   daysUntil: "",
   errors: null
 };
@@ -21,7 +21,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         fetchingGivers: false,
-        giverNum: action.payload
+        givers: action.payload
       };
     case "ERROR":
       return {
