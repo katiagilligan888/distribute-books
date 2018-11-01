@@ -65,7 +65,7 @@ class HomePage extends React.Component {
         <div className="row">
           <div className="col-md-8">
             <YouTube
-                videoId="WbH0QwgruVY"
+                videoId="VU2k4X1hsI4"
                 opts={opts}
               />
           </div>

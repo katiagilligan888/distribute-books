@@ -3,7 +3,7 @@ import { Field, reduxForm } from "redux-form";
 import Recaptcha from "react-recaptcha";
 import { toast } from "react-toastify";
 import { db } from "../firebase";
-import giverLogo from "../giver_logo.png";
+import giverLogo from "../assets/img/giver_logo.png";
 
 class GiverForm extends React.Component {
   constructor() {

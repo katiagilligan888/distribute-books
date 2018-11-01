@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import SignOutButton from "./SignOut";
 import * as routes from "../constants/routes";
 import AuthUserContext from "./AuthUserContext"; 
-import logo from '../logo.png'
+import logo from '../assets/img/logo.png'
+import bbtLogo from '../assets/img/BBTblack.png';
 
 const Navigation = () => {
   return (
@@ -36,8 +37,11 @@ const NavigationNonAuth = () => {
   return (
     <nav className="navbar navbar-expand-sm navbar-light bg-light justify-content-between">
       <div className = "container">
-            <Link  className="navbar-brand" to={routes.LANDING}><img className = "logo" src = {logo} /></Link>{" "}
-          <Link to={routes.SIGN_IN}>
+            <Link  className="navbar-brand" to={routes.LANDING}>
+              <img className = "logo" src = {logo} />
+              <img className = "bbtlogo"  src = {bbtLogo} />
+            </Link>{" "}
+            <Link to={routes.SIGN_IN}>
             <button type="button" className="btn btn-primary">Sign In</button>
           </Link>
           </div>

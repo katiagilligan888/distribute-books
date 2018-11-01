@@ -13,6 +13,7 @@ import PasswordForget from './PasswordForget';
 import BookFormPage from './BookFormPage';
 import HomePage from './HomePage'; 
 import AccountPage from './AccountPage';
+import Footer from './Footer';
 
 
 import * as routes from '../constants/routes'
@@ -32,6 +33,7 @@ const App = () => {
             <Route path = {routes.ACCOUNT} component = {AccountPage} />
             <Route path = {routes.HOME} component = {HomePage} />
             <ToastContainer position="top-right" />
+            <Footer />
         </div>
     )
 }
