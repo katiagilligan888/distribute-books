@@ -16,19 +16,22 @@ class SignInForm extends Component {
 
   renderField = field => {
     return (
-      <div className="form-group col-md-12">
-        <label>{field.label}</label>
-        <input
-          className="form-control"
-          type={field.inputType}
-          {...field.input}
-        />
-        {field.meta.touched ? (
-          <span className="text-danger">{field.meta.error}</span>
-        ) : (
-          ""
-        )}
+      <div className="container">
+        <div className="form-group col-md-12">
+          <label>{field.label}</label>
+          <input
+            className="form-control"
+            type={field.inputType}
+            {...field.input}
+          />
+          {field.meta.touched ? (
+            <span className="text-danger">{field.meta.error}</span>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
+
     );
   };
 
