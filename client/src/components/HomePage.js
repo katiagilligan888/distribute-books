@@ -17,13 +17,15 @@ class HomePage extends React.Component {
 
   render() {
     const opts = {
+      width: '100%',
+      height: '100%',
       playerVars: { // https://developers.google.com/youtube/player_parameters
         autoplay: 1
       }
     };
     return (
       <div className="container margin-header">
-        <div className="row statcards">
+        {/* <div className="row statcards">
           <div className="col-md-3">
             <div className="statcard statcard-primary p-4">
               <h3 className="statcard-number">5</h3>
@@ -49,16 +51,17 @@ class HomePage extends React.Component {
             </div>
           </div>
         </div>
-        <hr />
+        <hr /> */}
         <div className="row">
-          <div className="col-md-8" />
-            <div className="embed-responsive">
-            <YouTube
-              videoId="WbH0QwgruVY"
-              opts={opts}
-            />
-            </div>
-
+          <div className="col-md-8">
+            {/* <div className="embed-responsive"> */}
+              <YouTube
+                // className="embed-responsive-item"
+                videoId="WbH0QwgruVY"
+                opts={opts}
+              />
+            {/* </div> */}
+          </div>
           <div className="col-md-4">
             <GiverForm />
           </div>

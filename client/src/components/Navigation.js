@@ -23,7 +23,7 @@ const NavigationAuth = () => {
       <Link className="navbar-brand" to={routes.LANDING}><img className = "logo" src ={logo} /></Link>
       <div className="navbar-nav d-flex flex-row justify-content-between">
             <Link className="nav-item nav-link" to={routes.HOME}>Home</Link>
-            <Link className="nav-item nav-link" to={routes.BOOK_FORM}>Book Form</Link>
+            <Link className="nav-item nav-link" to={routes.BOOK_FORM}>Submit Book Scores</Link>
           <SignOutButton />
       </div>
       </div>
