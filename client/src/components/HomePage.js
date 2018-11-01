@@ -2,7 +2,7 @@ import React from "react";
 import withAuthorization from "./withAuthorization";
 import GiverForm from "./GiverForm";
 import { connect } from "react-redux";
-import { setDaysUntil } from "../actions";
+import { setDaysUntil, fetchingGivers } from "../actions";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -11,10 +11,10 @@ class HomePage extends React.Component {
 
   componentDidMount = () => {
     this.props.setDaysUntil();
+    this.props.fetchingGivers();
   };
 
   render() {
-    console.log(this.props.daysUntil);
     return (
       <div className="container margin-header">
         <div className="row statcards">
@@ -32,7 +32,7 @@ class HomePage extends React.Component {
           </div>
           <div className="col-md-3">
             <div className="statcard statcard-warning p-4">
-              <h3 className="statcard-number" />
+              <h3 className="statcard-number">{this.props.giverNum}</h3>
               <span className="statcard-desc"># of Givers</span>
             </div>
           </div>
@@ -56,7 +56,6 @@ class HomePage extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     giverNum: state.appReducer.giverNum,
     daysUntil: state.appReducer.daysUntil
@@ -65,5 +64,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { setDaysUntil }
+  { setDaysUntil, fetchingGivers }
 )(HomePage);

@@ -14,15 +14,23 @@ export const setDaysUntil = () => {
   };
 };
 
-// export const setGiverNumber = () => {
-//     let givers = []
-//     firebase.firestore().collection('givers').onSnapshot(snapshot => {
-//         snapshot.forEach((doc) => {
-//             givers.push(doc.data())
-//         })
-//     })
-//     return {
-//         type: 'GIVERS_NUMBER_QUERY',
-//         payload: givers.length
-//     }
-// }
+export const fetchingGivers = () => {
+  const request = firebase
+    .firestore()
+    .collection("givers")
+    .get();
+  return dispatch => {
+    dispatch({ type: "FETCHING_GIVERS" });
+    request
+      .then(querySnapshot => {
+        dispatch({
+          type: "FETCHED_GIVERS",
+          payload: querySnapshot.docs.length
+        });
+        console.log(querySnapshot.docs.length);
+      })
+      .catch(err => {
+        dispatch({ type: "ERROR", payload: err });
+      });
+  };
+};

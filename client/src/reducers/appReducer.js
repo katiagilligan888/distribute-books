@@ -1,6 +1,8 @@
 const initialState = {
+  fetchingGivers: false,
   giverNum: "",
-  daysUntil: ""
+  daysUntil: "",
+  errors: null
 };
 
 export default (state = initialState, action) => {
@@ -10,9 +12,23 @@ export default (state = initialState, action) => {
         ...state,
         daysUntil: action.payload
       };
-    // Object.assign({}, state, {giverNum: action.payload})
-    // case "GIVERS_NUMBER_QUERY":
-    //     return Object.assign({}, state, {daysUntil: action.payload})
+    case "FETCHING_GIVERS":
+      return {
+        ...state,
+        fetchingGivers: true
+      };
+    case "FETCHED_GIVERS":
+      return {
+        ...state,
+        fetchingGivers: false,
+        giverNum: action.payload
+      };
+    case "ERROR":
+      return {
+        ...state,
+        fetchingGivers: false,
+        errors: action.payload
+      };
     default:
       return state;
   }
