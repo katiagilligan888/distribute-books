@@ -3,6 +3,7 @@ import withAuthorization from "./withAuthorization";
 import GiverForm from "./GiverForm";
 import { connect } from "react-redux";
 import { setDaysUntil, fetchingGivers } from "../actions";
+import YouTube from 'react-youtube';
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -15,6 +16,11 @@ class HomePage extends React.Component {
   };
 
   render() {
+    const opts = {
+      playerVars: { // https://developers.google.com/youtube/player_parameters
+        autoplay: 1
+      }
+    };
     return (
       <div className="container margin-header">
         <div className="row statcards">
@@ -46,6 +52,13 @@ class HomePage extends React.Component {
         <hr />
         <div className="row">
           <div className="col-md-8" />
+            <div className="embed-responsive">
+            <YouTube
+              videoId="WbH0QwgruVY"
+              opts={opts}
+            />
+            </div>
+
           <div className="col-md-4">
             <GiverForm />
           </div>
