@@ -43,13 +43,19 @@ class GiverForm extends React.Component {
   };
 
   onSubmit = values => {
+    let toCommit = {
+      firstName: values.firstName,
+      lastName: values.lastName,
+      email: values.email,
+      country: values.country
+    }
+    if (this.state.coords.longitude && this.state.coords.latitude) {
+      toCommit.longitude = this.state.coords.longitude
+      toCommit.latitude = this.state.coords.latitude
+    }
     db.doCreateGiver(
-      values.firstName,
-      values.lastName,
       values.email,
-      values.country,
-      this.state.coords.longitude,
-      this.state.coords.latitude
+      toCommit
     ).then(() => {
       toast.info("Thank you for becoming a Giver");
       this.props.reset();
