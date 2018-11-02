@@ -58,7 +58,7 @@ class GiverForm extends React.Component {
 
   render() {
     return (
-      <div className="giver-form">
+      <div className = "giver">
         <img className="giver-logo" src={giverLogo} />
         <form
           className="giver-form"
