@@ -2,9 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SignOutButton from "./SignOut";
 import * as routes from "../constants/routes";
-import AuthUserContext from "./AuthUserContext"; 
-import logo from '../assets/img/logo.png'
-import bbtLogo from '../assets/img/BBTblack.png';
+import AuthUserContext from "./AuthUserContext";
+import logo from "../assets/img/logo.png";
+import bbtLogo from "../assets/img/BBTblack.png";
+import {
+  Button,
+  Collapse,
+  Container,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink
+} from "reactstrap";
 
 const Navigation = () => {
   return (
@@ -16,36 +27,71 @@ const Navigation = () => {
   );
 };
 
-const NavigationAuth = () => {
-  return (
-   
-    <nav className="navbar navbar-expand-sm navbar-light bg-light justify-content-between">
-     <div className = "container">
-      <Link className="navbar-brand" to={routes.LANDING}><img className = "logo" src ={logo} /></Link>
-      <div className="navbar-nav d-flex flex-row justify-content-between">
-            <Link className="nav-item nav-link" to={routes.HOME}>Home</Link>
-            <Link className="nav-item nav-link" to={routes.BOOK_FORM}>Submit Book Scores</Link>
-          <SignOutButton />
+class NavigationAuth extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isOpen: true
+    };
+  }
+  toggle = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <Navbar color="light" light>
+          <Container>
+            <NavbarBrand href="/" className="mr-auto">
+              <Link to={routes.LANDING}>
+                <img className="logo" src={logo} />
+              </Link>
+            </NavbarBrand>
+            <NavbarToggler onClick={this.toggle} className="mr-2" />
+            <Collapse isOpen={!this.state.isOpen} navbar>
+              <Nav navbar>
+                <NavItem>
+                  <Link to={routes.HOME}>Home</Link>
+                </NavItem>
+                <NavItem>
+                  <Link to={routes.BOOK_FORM}>Submit Book Scores</Link>
+                </NavItem>
+                <NavLink>
+                  <SignOutButton />
+                </NavLink>
+              </Nav>
+            </Collapse>
+          </Container>
+        </Navbar>
       </div>
-      </div>
-    </nav>
-   
-  );
-};
+    );
+  }
+}
 
 const NavigationNonAuth = () => {
   return (
-    <nav className="navbar navbar-expand-sm navbar-light bg-light justify-content-between">
-      <div className = "container">
-            <Link  className="navbar-brand" to={routes.LANDING}>
-              <img className = "logo" src = {logo} />
-              <img className = "bbtlogo"  src = {bbtLogo} />
-            </Link>{" "}
-            <Link to={routes.SIGN_IN}>
-            <button type="button" className="btn btn-primary">Sign In</button>
-          </Link>
-          </div>
-    </nav>
+    <div>
+      <Navbar color="light" light>
+        <Container>
+          <NavbarBrand href="/" className="mr-auto">
+            <Link to={routes.LANDING}>
+              <img className="logo" src={logo} />
+            </Link>
+          </NavbarBrand>
+          <Nav navbar>
+            <NavItem>
+              <Link to={routes.SIGN_IN}>
+                <Button type="button">Sign In</Button>
+              </Link>
+            </NavItem>
+          </Nav>
+        </Container>
+      </Navbar>
+    </div>
   );
 };
 export default Navigation;
