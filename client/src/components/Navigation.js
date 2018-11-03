@@ -85,7 +85,7 @@ const NavigationNonAuth = () => {
           <Nav navbar>
             <NavItem>
               <Link to={routes.SIGN_IN}>
-                <Button type="button">Sign In</Button>
+                <Button type="button" color = "primary" >Sign In</Button>
               </Link>
             </NavItem>
           </Nav>
