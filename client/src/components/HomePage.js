@@ -4,6 +4,7 @@ import GiverForm from "./GiverForm";
 import { connect } from "react-redux";
 import { setDaysUntil, fetchingGivers } from "../actions";
 import YouTube from 'react-youtube';
+import GiverMap from "./GiverMap";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -35,6 +36,7 @@ class HomePage extends React.Component {
 
     return (
       <div className="container margin-header">
+      <GiverMap />
         {/* <div className="row statcards">
           <div className="col-md-3">
             <div className="statcard statcard-primary p-4">
