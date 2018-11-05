@@ -77,6 +77,7 @@ class SignInForm extends Component {
           {this.state.error && (
             <p className="text-danger">{this.state.error.message}</p>
           )}
+          <p> Email <a href = "mailto:info@bbtbooks.org">info@bbtbooks.org</a> to set up an account </p>
           {/* <PasswordForgetLink /> */}
         </form>
       </div>

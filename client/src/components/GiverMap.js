@@ -34,7 +34,6 @@ class GiverMap extends Component {
   };
 
   render() {
-      console.log(this.getGiversArray(this.props.givers))
     return (
       <div style={wrapperStyles}>
         <ComposableMap
