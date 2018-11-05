@@ -1,33 +1,55 @@
-import React, {Component} from 'react'; 
+import React, { Component } from "react";
 import {
-    ComposableMap,
-    ZoomableGroup,
-    Geographies,
-    Geography
-  } from "react-simple-maps";
-  
-  const wrapperStyles = {
-    width: "100%",
-    maxWidth: 980,
-    margin: "0 auto"
+  ComposableMap,
+  ZoomableGroup,
+  Geographies,
+  Geography,
+  Marker,
+  Markers
+} from "react-simple-maps";
+
+const wrapperStyles = {
+  width: "100%",
+  maxWidth: 980,
+  margin: "0 auto"
+};
+
+class GiverMap extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  getGiversArray = givers => {
+    const coordinates = givers
+      .filter(giver => {
+        return giver.lat || giver.latitude;
+      })
+      .map(giver => {
+        if (giver.lat) {
+          return { coordinates: [giver.long, giver.lat] };
+        } else if (giver.latitude) {
+          return { coordinates: [giver.longitude, giver.latitude] };
+        }
+      });
+    return coordinates;
   };
-  
-  class GiverMap extends Component {
-    render() {
-      return (
-        <div style={wrapperStyles}>
-          <ComposableMap
-            projectionConfig={{
-              scale: 205,
-              rotation: [-11, 0, 0]
-            }}
-            width={980}
-            height={551}
-            style={{
-              width: "100%",
-              height: "auto"
-            }}
-          >
+
+  render() {
+    return (
+      <div style={wrapperStyles}>
+        <ComposableMap
+          projectionConfig={{
+            scale: 205,
+            rotation: [-11, 0, 0]
+          }}
+          width={980}
+          height={551}
+          style={{
+            width: "100%",
+            height: "auto"
+          }}
+        >
+          <ZoomableGroup>
             <Geographies geography="/static/world-50m.json">
               {(geographies, projection) =>
                 geographies.map(
@@ -62,10 +84,20 @@ import {
                 )
               }
             </Geographies>
-          </ComposableMap>
-        </div>
-      );
-    }
+            <Markers>
+              {this.getGiversArray(this.props.givers).map((marker, i) => {
+                return (
+                  <Marker marker={marker}>
+                    <circle cx={0} cy={0} r={5} />
+                  </Marker>
+                );
+              })}
+            </Markers>
+          </ZoomableGroup>
+        </ComposableMap>
+      </div>
+    );
   }
+}
 
-  export default GiverMap;
+export default GiverMap;

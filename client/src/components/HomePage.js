@@ -36,7 +36,7 @@ class HomePage extends React.Component {
 
     return (
       <div className="container margin-header">
-      <GiverMap />
+      <GiverMap givers = {this.props.givers}/>
         {/* <div className="row statcards">
           <div className="col-md-3">
             <div className="statcard statcard-primary p-4">
