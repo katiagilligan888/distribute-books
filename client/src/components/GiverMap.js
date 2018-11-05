@@ -7,7 +7,6 @@ import {
   Marker,
   Markers
 } from "react-simple-maps";
-
 const wrapperStyles = {
   width: "100%",
   maxWidth: 980,
@@ -35,6 +34,7 @@ class GiverMap extends Component {
   };
 
   render() {
+      console.log(this.getGiversArray(this.props.givers))
     return (
       <div style={wrapperStyles}>
         <ComposableMap
@@ -84,12 +84,22 @@ class GiverMap extends Component {
                 )
               }
             </Geographies>
-            <Markers>
+           <Markers>
               {this.getGiversArray(this.props.givers).map((marker, i) => {
                 return (
-                  <Marker marker={marker}>
-                    <circle cx={0} cy={0} r={5} />
-                  </Marker>
+                
+                    <Marker style={{
+                        default: { fill: "##FF5722" },
+                        hover: { fill: "#FFFFFF" },
+                        pressed: { fill: "#FF5722" },
+                      }} marker={marker}>
+                            <circle cx={0} cy={0} r={4} style={{
+                      stroke: "#FF5722",
+                      strokeWidth: 3,
+                      opacity: 0.9,
+                    }} />
+                </Marker>
+                  
                 );
               })}
             </Markers>
