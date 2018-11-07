@@ -68,11 +68,14 @@ class SignInForm extends Component {
             />
           </div>
           <button
-            className="button-sign-in btn btn-lg btn-pill btn-primary"
+            className="button-sign-in btn btn-lg btn-primary"
             type="submit"
           >
             Sign In
           </button>
+          <div>
+            To sign up, please email info@bbt.org to request access
+          </div>
 
           {this.state.error && (
             <p className="text-danger">{this.state.error.message}</p>
