@@ -2,11 +2,11 @@ import React from "react";
 
 const Footer = () => {
     return (
-        <footer class="footer bg-light">
+        <nav className="navbar fixed-bottom navbar-light bg-light text-center">
             <div className="container">
-                <span className="text-muted">His Divine Grace A.C. Bhaktivedanta Swami Prabhupada</span>
+                <a className="text-center footer-text">In the service of: His Divine Grace A.C. Bhaktivedanta Swami Prabhupada Founder-Acarya of the International Society for Krishna Consciousness.</a>
             </div>
-        </footer>
+        </nav>
     )
 };
 
