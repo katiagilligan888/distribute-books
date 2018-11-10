@@ -1,501 +1,66 @@
 module.exports = {
-  languageOptions: [{
-      value: "Amharic",
-      label: "Amharic"
-    },
-    {
-      value: "Arabic",
-      label: "Arabic"
-    },
-    {
-      value: "Armenian",
-      label: "Armenian"
-    },
-    {
-      value: "Assamese",
-      label: "Assamese"
-    },
-    {
-      value: "Bengali",
-      label: "Bengali"
-    },
-    {
-      value: "Chinese",
-      label: "Chinese"
-    },
-    {
-      value: "Danish",
-      label: "Danish"
-    },
-    {
-      value: "Estonian",
-      label: "Estonian"
-    },
-    {
-      value: "Farsi",
-      label: "Farsi"
-    },
-    {
-      value: "French",
-      label: "French"
-    },
-    {
-      value: "German",
-      label: "German"
-    },
-    {
-      value: "Greek",
-      label: "Greek"
-    },
-    {
-      value: "Gujarati",
-      label: "Gujarati"
-    },
-    {
-      value: "Hebrew",
-      label: "Hebrew"
-    },
-    {
-      value: "Hindi",
-      label: "Hindi"
-    },
-    {
-      value: "Hungarian",
-      label: "Hungarian"
-    },
-    {
-      value: "Icelandic",
-      label: "Icelandic"
-    },
-    {
-      value: "Italian",
-      label: "Italian"
-    },
-    {
-      value: "Japanese",
-      label: "Japanese"
-    },
-    {
-      value: "Kannada",
-      label: "Kannada"
-    },
-    {
-      value: "Kiswahili",
-      label: "Kiswahili"
-    },
-    {
-      value: "Korean",
-      label: "Korean"
-    },
-    {
-      value: "Mandarin",
-      label: "Mandarin"
-    },
-    {
-      value: "Marathi",
-      label: "Marathi"
-    },
-    {
-      value: "Oriya",
-      label: "Oriya"
-    },
-    {
-      value: "Polish",
-      label: "Polish"
-    },
-    {
-      value: "Portuguese",
-      label: "Portugese"
-    },
-    {
-      value: "Russian",
-      label: "Russian"
-    },
-    {
-      value: "Spanish",
-      label: "Spanish"
-    },
-    {
-      value: "Swedish",
-      label: "Swedish"
-    },
-    {
-      value: "Telugu",
-      label: "Telugu"
-    },
-    {
-      value: "Thai",
-      label: "Thai"
-    },
-    {
-      value: "Ukranian",
-      label: "Ukranian"
-    },
-    {
-      value: "Urdu",
-      label: "Urdu"
-    },
-    {
-      value: "Vietnamese",
-      label: "Vietnamese"
-    },
-    {
-      value: "Zulu",
-      label: "Zulu"
-    },
-    {
-      value: "Croatian",
-      label: "Croatian"
-    },
-    {
-      value: "Nepali",
-      label: "Nepali"
-    },
-    {
-      value: "Afrikaans",
-      label: "Afrikaans"
-    },
-    {
-      value: "Albanian",
-      label: "Albanian"
-    },
-    {
-      value: "Azerbaijani",
-      label: "Azerbaijani"
-    },
-    {
-      value: "Bashkir",
-      label: "Bashkir"
-    },
-    {
-      value: "Belarusian",
-      label: "Belarisian"
-    },
-    {
-      value: "Bosnian",
-      label: "Bosnian"
-    },
-    {
-      value: "Bulgarian",
-      label: "Bulgarian"
-    },
-    {
-      value: "Burmese",
-      label: "Burmese"
-    },
-    {
-      value: "Chhattisgarhi",
-      label: "Chhattisgarhi"
-    },
-    {
-      value: "Chuvash",
-      label: "Chuvash"
-    },
-    {
-      value: "Czech",
-      label: "Czech"
-    },
-    {
-      value: "Dutch",
-      label: "Dutch"
-    },
-    {
-      value: "Esperanto",
-      label: "Esperanto"
-    },
-    {
-      value: "Finnish",
-      label: "Finnish"
-    },
-    {
-      value: "Georgian",
-      label: "Georgian"
-    },
-    {
-      value: "Glish",
-      label: "Glish"
-    },
-    {
-      value: "Indonesian",
-      label: "Indonesian"
-    },
-    {
-      value: "Karakalpak",
-      label: "Karalpak"
-    },
-    {
-      value: "Kazakh",
-      label: "Kazakh"
-    },
-    {
-      value: "Khmer",
-      label: "Khmer"
-    },
-    {
-      value: "Kirgiz",
-      label: "Kirgiz"
-    },
-    {
-      value: "Lao",
-      label: "Lao"
-    },
-    {
-      value: "Latvian",
-      label: "Latvian"
-    },
-    {
-      value: "Lithuanian",
-      label: "Lithuanian"
-    },
-    {
-      value: "Macedonian",
-      label: "Macedonian"
-    },
-    {
-      value: "Malayalam",
-      label: "Malayalam"
-    },
-    {
-      value: "Manipuri",
-      label: "Manipuri"
-    },
-    {
-      value: "Mauritius Creole",
-      label: "Mauritius Creole"
-    },
-    {
-      value: "Mongolian",
-      label: "Mongolian"
-    },
-    {
-      value: "Newari",
-      label: "Newari"
-    },
-    {
-      value: "Norwegian",
-      label: "Norwegian"
-    },
-    {
-      value: "Pidgin",
-      label: "Pidgin"
-    },
-    {
-      value: "Punjabi",
-      label: "Punjabi"
-    },
-    {
-      value: "Romanian",
-      label: "Romanian"
-    },
-    {
-      value: "Serbian",
-      label: "Serbian"
-    },
-    {
-      value: "Serbo-Croatian",
-      label: "Serbo-Croatian"
-    },
-    {
-      value: "Sindhi",
-      label: "Sindhi"
-    },
-    {
-      value: "Slovak",
-      label: "Slovak"
-    },
-    {
-      value: "Slovene",
-      label: "Slovene"
-    },
-    {
-      value: "Swahili",
-      label: "Swahili"
-    },
-    {
-      value: "Tagalog",
-      label: "Tagalog"
-    },
-    {
-      value: "Tajik",
-      label: "Tajik"
-    },
-    {
-      value: "Tamil",
-      label: "Tamil"
-    },
-    {
-      value: "Tatar",
-      label: "Tatar"
-    },
-    {
-      value: "Tibetan",
-      label: "Tibetan"
-    },
-    {
-      value: "Tswana",
-      label: "Tswana"
-    },
-    {
-      value: "Turkish",
-      label: "Turkish"
-    },
-    {
-      value: "Turkmen",
-      label: "Turkmen"
-    },
-    {
-      value: "Udmurt",
-      label: "Udmurt"
-    },
-    {
-      value: "Uzbekh",
-      label: "Uzbekh"
-    },
-    {
-      value: "Zhosa",
-      label: "Zhosa"
-    },
-    {
-      value: "English",
-      label: "English"
-    }
-  ],
-  distributeOptions: [{
-      value: 'Door To Door',
-      label: 'Door to Door'
-    },
-    {
-      value: 'Street Sankirtan',
-      label: 'Street Sankirtan'
-    },
-    {
-      value: 'Booth Multicultural Festival',
-      label: 'Booth Multicultural Festival'
-    },
-    {
-      value: 'Motel Gita placement',
-      label: 'Motel Gita placement'
-    },
-    {
-      value: 'Hospital placement',
-      label: 'Hospital placement'
-    },
-    {
-      value: 'Other Placements',
-      label: 'Other Placements'
-    },
-    {
-      value: 'Factory placement',
-      label: 'Factory placement'
-    },
-    {
-      value: 'Base Temple Distribution',
-      label: 'Base Temple Distribution'
-    },
-    {
-      value: 'Yoga Studios placement',
-      label: 'Yoga Studios placement'
-    },
-    {
-      value: 'Smart Box',
-      label: 'Smart Box'
-    },
-    {
-      value: 'Music Festival',
-      label: 'Music Festival'
-    },
-    {
-      value: 'Individual',
-      label: 'Individual'
-    },
-    {
-      value: 'Traveling Sankirtan',
-      label: 'Traveling Sankirtan'
-    },
-    {
-      value: 'College Campus',
-      label: 'College Campus'
-    },
-  ],
-  bookTitles: [{
-    "value": "Srimad-Bhagavatam 1.1",
-    "label": "Srimad-Bhagavatam 1.1"
-  }, {
-    "value": "Bhagavad-gita 1972 Edition",
-    "label": "Bhagavad-gita 1972 Edition"
-  }, {
-    "value": "Krsna Book Hard One Volume",
-    "label": "Krsna Book Hard One Volume"
-  }, {
-    "value": "Journey of Self Discovery (Hard)",
-    "label": "Journey of Self Discovery (Hard)"
-  }, {
-    "value": "Science of Self-Realization (Hard)",
-    "label": "Science of Self-Realization (Hard)"
-  }, {
-    "value": "Teachings of Lord Caitanya (Flexibind)",
-    "label": "Teachings of Lord Caitanya (Flexibind)"
-  }, {
-    "value": "Hiding in Unnatural Happiness",
-    "label": "Hiding in Unnatural Happiness"
-  }, {
-    "value": "Science of Self-Realization (Soft)",
-    "label": "Science of Self-Realization (Soft)"
-  }, {
-    "value": "Vanity Karma: Ecclesiastes, the Bhagavad-gita, and the meaning of life",
-    "label": "Vanity Karma: Ecclesiastes, the Bhagavad-gita, and the meaning of life"
-  }, {
-    "value": "Dharma - The Way of Transcendence",
-    "label": "Dharma - The Way of Transcendence"
-  }, {
-    "value": "Nectar of Instruction",
-    "label": "Nectar of Instruction"
-  }, {
-    "value": "Sri Isopanisad",
-    "label": "Sri Isopanisad"
-  }, {
-    "value": "Chant and Be Happy",
-    "label": "Chant and Be Happy"
-  }, {
-    "value": "Higher Taste",
-    "label": "Higher Taste"
-  }, {
-    "value": "Coming Back",
-    "label": "Coming Back"
-  }, {
-    "value": "Light of the Bhagavata",
-    "label": "Light of the Bhagavata"
-  }, {
-    "value": "Introduction to Bhagavad-gita",
-    "label": "Introduction to Bhagavad-gita"
-  }, {
-    "value": "Easy Journey to Other Planets",
-    "label": "Easy Journey to Other Planets"
-  }, {
-    "value": "Spiritual Yoga",
-    "label": "Spiritual Yoga"
-  }, {
-    "value": "Matchless Gifts",
-    "label": "Matchless Gifts"
-  }, {
-    "value": "Topmost Yoga (Soft)",
-    "label": "Topmost Yoga (Soft)"
-  }, {
-    "value": "Beyond Birth and Death",
-    "label": "Beyond Birth and Death"
-  }, {
-    "value": "The Perfection of Yoga",
-    "label": "The Perfection of Yoga"
-  }, {
-    "value": "Perfect Questions Perfect Answers (Soft)",
-    "label": "Perfect Questions Perfect Answers (Soft)"
-  }, {
-    "value": "Raja Vidya",
-    "label": "Raja Vidya"
-  }, {
-    "value": "Bhakti Yoga - The Art of Eternal Love",
-    "label": "Bhakti Yoga - The Art of Eternal Love"
-  }],
+  languageOptions: [{"value":"Amharic","label":"Amharic"},{"value":"Arabic","label":"Arabic"},{"value":"Armenian","label":"Armenian"},{"value":"Assamese","label":"Assamese"},{"value":"Bengali","label":"Bengali"},{"value":"Chinese","label":"Chinese"},{"value":"Danish","label":"Danish"},{"value":"Estonian","label":"Estonian"},{"value":"Farsi","label":"Farsi"},{"value":"French","label":"French"},{"value":"German","label":"German"},{"value":"Greek","label":"Greek"},{"value":"Gujarati","label":"Gujarati"},{"value":"Hebrew","label":"Hebrew"},{"value":"Hindi","label":"Hindi"},{"value":"Hungarian","label":"Hungarian"},{"value":"Icelandic","label":"Icelandic"},{"value":"Italian","label":"Italian"},{"value":"Japanese","label":"Japanese"},{"value":"Kannada","label":"Kannada"},{"value":"Kiswahili","label":"Kiswahili"},{"value":"Korean","label":"Korean"},{"value":"Mandarin","label":"Mandarin"},{"value":"Marathi","label":"Marathi"},{"value":"Oriya","label":"Oriya"},{"value":"Polish","label":"Polish"},{"value":"Portuguese","label":"Portugese"},{"value":"Russian","label":"Russian"},{"value":"Spanish","label":"Spanish"},{"value":"Swedish","label":"Swedish"},{"value":"Telugu","label":"Telugu"},{"value":"Thai","label":"Thai"},{"value":"Ukranian","label":"Ukranian"},{"value":"Urdu","label":"Urdu"},{"value":"Vietnamese","label":"Vietnamese"},{"value":"Zulu","label":"Zulu"},{"value":"Croatian","label":"Croatian"},{"value":"Nepali","label":"Nepali"},{"value":"Afrikaans","label":"Afrikaans"},{"value":"Albanian","label":"Albanian"},{"value":"Azerbaijani","label":"Azerbaijani"},{"value":"Bashkir","label":"Bashkir"},{"value":"Belarusian","label":"Belarisian"},{"value":"Bosnian","label":"Bosnian"},{"value":"Bulgarian","label":"Bulgarian"},{"value":"Burmese","label":"Burmese"},{"value":"Chhattisgarhi","label":"Chhattisgarhi"},{"value":"Chuvash","label":"Chuvash"},{"value":"Czech","label":"Czech"},{"value":"Dutch","label":"Dutch"},{"value":"Esperanto","label":"Esperanto"},{"value":"Finnish","label":"Finnish"},{"value":"Georgian","label":"Georgian"},{"value":"Glish","label":"Glish"},{"value":"Indonesian","label":"Indonesian"},{"value":"Karakalpak","label":"Karalpak"},{"value":"Kazakh","label":"Kazakh"},{"value":"Khmer","label":"Khmer"},{"value":"Kirgiz","label":"Kirgiz"},{"value":"Lao","label":"Lao"},{"value":"Latvian","label":"Latvian"},{"value":"Lithuanian","label":"Lithuanian"},{"value":"Macedonian","label":"Macedonian"},{"value":"Malayalam","label":"Malayalam"},{"value":"Manipuri","label":"Manipuri"},{"value":"Mauritius Creole","label":"Mauritius Creole"},{"value":"Mongolian","label":"Mongolian"},{"value":"Newari","label":"Newari"},{"value":"Norwegian","label":"Norwegian"},{"value":"Pidgin","label":"Pidgin"},{"value":"Punjabi","label":"Punjabi"},{"value":"Romanian","label":"Romanian"},{"value":"Serbian","label":"Serbian"},{"value":"Serbo-Croatian","label":"Serbo-Croatian"},{"value":"Sindhi","label":"Sindhi"},{"value":"Slovak","label":"Slovak"},{"value":"Slovene","label":"Slovene"},{"value":"Swahili","label":"Swahili"},{"value":"Tagalog","label":"Tagalog"},{"value":"Tajik","label":"Tajik"},{"value":"Tamil","label":"Tamil"},{"value":"Tatar","label":"Tatar"},{"value":"Tibetan","label":"Tibetan"},{"value":"Tswana","label":"Tswana"},{"value":"Turkish","label":"Turkish"},{"value":"Turkmen","label":"Turkmen"},{"value":"Udmurt","label":"Udmurt"},{"value":"Uzbekh","label":"Uzbekh"},{"value":"Zhosa","label":"Zhosa"},{"value":"English","label":"English"}],
+  distributeOptions: [ { value: 'Base Temple Distribution',
+  label: 'Base Temple Distribution' },
+{ value: 'Booth Multicultural Festival',
+  label: 'Booth Multicultural Festival' },
+{ value: 'College Campus', label: 'College Campus' },
+{ value: 'Door To Door', label: 'Door to Door' },
+{ value: 'Factory placement', label: 'Factory placement' },
+{ value: 'Hospital placement', label: 'Hospital placement' },
+{ value: 'Individual', label: 'Individual' },
+{ value: 'Motel Gita placement', label: 'Motel Gita placement' },
+{ value: 'Music Festival', label: 'Music Festival' },
+{ value: 'Other Placements', label: 'Other Placements' },
+{ value: 'Smart Box', label: 'Smart Box' },
+{ value: 'Street Sankirtan', label: 'Street Sankirtan' },
+{ value: 'Traveling Sankirtan', label: 'Traveling Sankirtan' },
+{ value: 'Yoga Studios placement',
+  label: 'Yoga Studios placement' } ],
+  bookTitles: [ { value: 'Beyond Birth and Death',
+  label: 'Beyond Birth and Death' },
+{ value: 'Bhagavad-gita 1972 Edition',
+  label: 'Bhagavad-gita 1972 Edition' },
+{ value: 'Bhakti Yoga - The Art of Eternal Love',
+  label: 'Bhakti Yoga - The Art of Eternal Love' },
+{ value: 'Chant and Be Happy', label: 'Chant and Be Happy' },
+{ value: 'Coming Back', label: 'Coming Back' },
+{ value: 'Dharma - The Way of Transcendence',
+  label: 'Dharma - The Way of Transcendence' },
+{ value: 'Easy Journey to Other Planets',
+  label: 'Easy Journey to Other Planets' },
+{ value: 'Hiding in Unnatural Happiness',
+  label: 'Hiding in Unnatural Happiness' },
+{ value: 'Higher Taste', label: 'Higher Taste' },
+{ value: 'Introduction to Bhagavad-gita',
+  label: 'Introduction to Bhagavad-gita' },
+{ value: 'Journey of Self Discovery (Hard)',
+  label: 'Journey of Self Discovery (Hard)' },
+{ value: 'Krsna Book Hard One Volume',
+  label: 'Krsna Book Hard One Volume' },
+{ value: 'Light of the Bhagavata',
+  label: 'Light of the Bhagavata' },
+{ value: 'Matchless Gifts', label: 'Matchless Gifts' },
+{ value: 'Nectar of Instruction',
+  label: 'Nectar of Instruction' },
+{ value: 'Perfect Questions Perfect Answers (Soft)',
+  label: 'Perfect Questions Perfect Answers (Soft)' },
+{ value: 'Raja Vidya', label: 'Raja Vidya' },
+{ value: 'Science of Self-Realization (Hard)',
+  label: 'Science of Self-Realization (Hard)' },
+{ value: 'Science of Self-Realization (Soft)',
+  label: 'Science of Self-Realization (Soft)' },
+{ value: 'Spiritual Yoga', label: 'Spiritual Yoga' },
+{ value: 'Sri Isopanisad', label: 'Sri Isopanisad' },
+{ value: 'Srimad-Bhagavatam 1.1',
+  label: 'Srimad-Bhagavatam 1.1' },
+{ value: 'Teachings of Lord Caitanya (Flexibind)',
+  label: 'Teachings of Lord Caitanya (Flexibind)' },
+{ value: 'The Perfection of Yoga',
+  label: 'The Perfection of Yoga' },
+{ value: 'Topmost Yoga (Soft)', label: 'Topmost Yoga (Soft)' },
+{ value: 'Vanity Karma: Ecclesiastes, the Bhagavad-gita, and the meaning of life',
+  label: 'Vanity Karma: Ecclesiastes, the Bhagavad-gita, and the meaning of life' } ],
   countries: [{
     "value": "Afghanistan",
     "label": "Afghanistan"
