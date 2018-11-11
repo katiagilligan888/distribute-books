@@ -74,7 +74,7 @@ class SignInForm extends Component {
             Sign In
           </button>
           <div>
-            To sign up, please email info@bbt.org to request access
+            To sign up, please email info@bbtbooks.org to request access
           </div>
 
           {this.state.error && (
