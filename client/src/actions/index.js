@@ -37,3 +37,42 @@ export const fetchingGivers = () => {
       });
   }
 };
+
+export const getBookScores = () => {
+  const request = firebase.firestore().collection('book-scores').get();
+  return dispatch => {
+    dispatch({ type: 'FETCHING_SCORES' });
+    request.then(querySnapshot => {
+      let totalScore = querySnapshot.map((doc) => {
+        return doc.data().bookCount;
+      }).reduce((a,b) => {
+        return a + b;
+      }, 0);
+      dispatch({
+        type: 'FETCHED_SCORES',
+        payload: totalScore,
+      })
+    }).catch(err => {
+      dispatch({ type: "ERROR", payload: err });
+    })
+  }
+}
+
+export const getUsers = () => {
+  const request = firebase.firestore().collection('users').get();
+  return dispatch => {
+    dispatch({ type: 'FETCHING_USERS '});
+    request.then(querySnapshot => {
+      let users = [];
+      querySnapshot.forEach((doc) => {
+        users.push(doc.data());
+      });
+      dispatch({
+        type: "FETCHED_USERS",
+        payload: users,
+      })
+    }).catch((err) => {
+      dispatch({ type: 'ERROR', paylod: err });
+    })
+  }
+}

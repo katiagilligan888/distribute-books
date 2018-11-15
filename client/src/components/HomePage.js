@@ -2,8 +2,9 @@ import React from "react";
 import withAuthorization from "./withAuthorization";
 import GiverForm from "./GiverForm";
 import { connect } from "react-redux";
-import { setDaysUntil, fetchingGivers } from "../actions";
+import { setDaysUntil, fetchingGivers, getUsers, getBookScores } from "../actions";
 import YouTube from 'react-youtube';
+import GiverMap from "./GiverMap";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -13,6 +14,14 @@ class HomePage extends React.Component {
   componentDidMount = () => {
     this.props.setDaysUntil();
     this.props.fetchingGivers();
+    this.props.getUsers();
+    this.props.getBookScores();
+
+    //set the script for the curator.io
+    const script = document.createElement('script');
+    const scriptText = document.createTextNode("(function(){ var i, e, d = document, s = 'script';i = d.createElement('script');i.async = 1;i.src = 'https://cdn.curator.io/published/9368039f-d533-4c2c-b3e7-c32021b31f88.js';e = d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);})();");
+    script.appendChild(scriptText);
+    document.head.appendChild(script);
   };
 
   render() {
@@ -35,33 +44,38 @@ class HomePage extends React.Component {
 
     return (
       <div className="container margin-header">
-        {/* <div className="row statcards">
+        <div className="hr-divider">
+          <h3 className="hr-divider-content hr-divider-heading">
+            Quick stats
+          </h3>
+        </div>
+        <div className="row statcards">
           <div className="col-md-3">
             <div className="statcard statcard-primary p-4">
-              <h3 className="statcard-number">5</h3>
-              <span className="statcard-desc">Books Sold</span>
+              <h3 className="statcard-number">{this.props.totalScore}</h3>
+              <span className="statcard-desc">Books Distributed</span>
             </div>
           </div>
           <div className="col-md-3">
             <div className="statcard statcard-info p-4">
-              <h3 className="statcard-number">2</h3>
-              <span className="statcard-desc"># of Temples</span>
+              <h3 className="statcard-number">{this.props.users.length}</h3>
+              <span className="statcard-desc">Participating Temples</span>
             </div>
           </div>
           <div className="col-md-3">
             <div className="statcard statcard-warning p-4">
               <h3 className="statcard-number">{this.props.givers.length}</h3>
-              <span className="statcard-desc"># of Givers</span>
+              <span className="statcard-desc">Givers</span>
             </div>
           </div>
           <div className="col-md-3">
             <div className="statcard statcard-danger p-4">
               <h3 className="statcard-number">{this.props.daysUntil}</h3>
-              <span className="statcard-desc">Days until 1/2019</span>
+              <span className="statcard-desc">Days until 1/1/2019</span>
             </div>
           </div>
         </div>
-        <hr /> */}
+        <hr />
         <div className="row">
           <div className="col-md-8 mb-4">
             <YouTube
@@ -73,6 +87,20 @@ class HomePage extends React.Component {
             <GiverForm />
           </div>
         </div>
+        <div className="hr-divider">
+          <h3 className="hr-divider-content hr-divider-heading">
+            Map of Givers
+          </h3>
+        </div>
+        <GiverMap givers = {this.props.givers}/>
+        <div className="hr-divider">
+          <h3 className="hr-divider-content hr-divider-heading">
+            Social
+          </h3>
+        </div>
+        <div id="curator-feed">
+            {/* <a href="https://curator.io" target="_blank" className="crt-logo crt-tag">Powered by Curator.io</a> */}
+        </div>
       </div>
     );
   }
@@ -81,11 +109,13 @@ class HomePage extends React.Component {
 const mapStateToProps = state => {
   return {
     givers: state.appReducer.givers,
-    daysUntil: state.appReducer.daysUntil
+    daysUntil: state.appReducer.daysUntil,
+    users: state.appReducer.users,
+    totalScore: state.appReducer.totalScore
   };
 };
 
 export default connect(
   mapStateToProps,
-  { setDaysUntil, fetchingGivers }
+  { setDaysUntil, fetchingGivers, getUsers , getBookScores }
 )(HomePage);
