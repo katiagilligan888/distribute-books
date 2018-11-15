@@ -38,6 +38,11 @@ class HomePage extends React.Component {
 
     return (
       <div className="container margin-header">
+        <div className="hr-divider">
+          <h3 className="hr-divider-content hr-divider-heading">
+            Quick stats
+          </h3>
+        </div>
         <div className="row statcards">
           <div className="col-md-3">
             <div className="statcard statcard-primary p-4">
@@ -76,13 +81,12 @@ class HomePage extends React.Component {
             <GiverForm />
           </div>
         </div>
-        <hr />
-        <div className="row">
-          <div className="col-xs-12">
-          <GiverMap givers = {this.props.givers}/>
-
-          </div>
+        <div className="hr-divider">
+          <h3 className="hr-divider-content hr-divider-heading">
+            Map of Givers
+          </h3>
         </div>
+        <GiverMap givers = {this.props.givers}/>
       </div>
     );
   }

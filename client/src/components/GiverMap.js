@@ -9,7 +9,7 @@ import {
 } from "react-simple-maps";
 const wrapperStyles = {
   width: "100%",
-  maxWidth: 980,
+  maxWidth: 1170,
   margin: "0 auto"
 };
 
@@ -34,7 +34,6 @@ class GiverMap extends Component {
   };
 
   render() {
-      console.log(this.getGiversArray(this.props.givers))
     return (
       <div style={wrapperStyles}>
         <ComposableMap
@@ -90,7 +89,7 @@ class GiverMap extends Component {
                 
                     <Marker style={{
                         default: { fill: "##FF5722" },
-                        hover: { fill: "#FFFFFF" },
+                        // hover: { fill: "#FFFFFF" },
                         pressed: { fill: "#FF5722" },
                       }} marker={marker}>
                             <circle cx={0} cy={0} r={4} style={{
