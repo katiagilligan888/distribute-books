@@ -16,6 +16,12 @@ class HomePage extends React.Component {
     this.props.fetchingGivers();
     this.props.getUsers();
     this.props.getBookScores();
+
+    //set the script for the curator.io
+    const script = document.createElement('script');
+    const scriptText = document.createTextNode("(function(){ var i, e, d = document, s = 'script';i = d.createElement('script');i.async = 1;i.src = 'https://cdn.curator.io/published/9368039f-d533-4c2c-b3e7-c32021b31f88.js';e = d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);})();");
+    script.appendChild(scriptText);
+    document.head.appendChild(script);
   };
 
   render() {
@@ -87,6 +93,14 @@ class HomePage extends React.Component {
           </h3>
         </div>
         <GiverMap givers = {this.props.givers}/>
+        <div className="hr-divider">
+          <h3 className="hr-divider-content hr-divider-heading">
+            Social
+          </h3>
+        </div>
+        <div id="curator-feed">
+            {/* <a href="https://curator.io" target="_blank" className="crt-logo crt-tag">Powered by Curator.io</a> */}
+        </div>
       </div>
     );
   }
