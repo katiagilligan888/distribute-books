@@ -59,7 +59,7 @@ class HomePage extends React.Component {
           <div className="col-md-3">
             <div className="statcard statcard-info p-4">
               <h3 className="statcard-number">{this.props.users.length}</h3>
-              <span className="statcard-desc">Participating Temples</span>
+              <span className="statcard-desc">Temples</span>
             </div>
           </div>
           <div className="col-md-3">
