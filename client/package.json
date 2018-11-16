@@ -9,6 +9,7 @@
     "react": "^16.5.2",
     "react-bootstrap-typeahead": "^3.2.4",
     "react-dom": "^16.5.2",
+    "react-ga": "^2.5.3",
     "react-materialize": "^2.4.5",
     "react-recaptcha": "^2.3.10",
     "react-redux": "^5.0.7",

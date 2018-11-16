@@ -19,8 +19,14 @@ import Footer from './Footer';
 import * as routes from '../constants/routes'
 import  withAuthentication from './withAuthentication'; 
 
+import ReactGA from 'react-ga';
 
 const App = () => {
+
+    (function initializeReactGA() {
+        ReactGA.initialize('UA-128423389-1');
+        ReactGA.pageview('/');
+    })();
     
     return (
         <div>
