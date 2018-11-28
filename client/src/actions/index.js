@@ -43,11 +43,10 @@ export const getBookScores = () => {
   return dispatch => {
     dispatch({ type: 'FETCHING_SCORES' });
     request.then(querySnapshot => {
-      let totalScore = querySnapshot.map((doc) => {
-        return doc.data().bookCount;
-      }).reduce((a,b) => {
-        return a + b;
-      }, 0);
+      let totalScore = 0;
+      querySnapshot.forEach((doc) => {
+        totalScore += doc.data().bookCount;
+      });
       dispatch({
         type: 'FETCHED_SCORES',
         payload: totalScore,

@@ -48,7 +48,7 @@ export default (state = initialState, action) => {
         ...state,
         fetchingScores: true
       }
-    case 'FETCHED_USERS':
+    case 'FETCHED_SCORES':
       return {
         ...state,
         totalScore: action.payload
