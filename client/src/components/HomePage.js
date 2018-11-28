@@ -71,7 +71,7 @@ class HomePage extends React.Component {
           <div className="col-md-3">
             <div className="statcard statcard-danger p-4">
               <h3 className="statcard-number">{this.props.daysUntil}</h3>
-              <span className="statcard-desc">Days until 1/1/2019</span>
+              <span className="statcard-desc">Days Left</span>
             </div>
           </div>
         </div>
