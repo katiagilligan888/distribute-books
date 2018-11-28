@@ -1,9 +1,7 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
-import Recaptcha from "react-recaptcha";
 import { toast } from "react-toastify";
 import { db } from "../firebase";
-import giverLogo from "../assets/img/giver_logo.png";
 
 class GiverForm extends React.Component {
   constructor() {
@@ -65,7 +63,6 @@ class GiverForm extends React.Component {
   render() {
     return (
       <div className = "giver">
-        <img className="giver-logo" src={giverLogo} />
         <form
           className="giver-form"
           onSubmit={this.props.handleSubmit(this.onSubmit)}

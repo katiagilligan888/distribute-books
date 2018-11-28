@@ -74,7 +74,7 @@ class SignInForm extends Component {
             Sign In
           </button>
           <div>
-            To sign up, please email info@bbtbooks.org to request access
+            This page is for Temple access only.
           </div>
 
           {this.state.error && (

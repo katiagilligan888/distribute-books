@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { setDaysUntil, fetchingGivers, getUsers, getBookScores } from "../actions";
 import YouTube from 'react-youtube';
 import GiverMap from "./GiverMap";
+import giverLogo from "../assets/img/giver_logo.png";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -42,14 +43,39 @@ class HomePage extends React.Component {
     'padding-top': '25px', 
     height: '0'}
 
+  const videoBoxStyle ={
+    height: '600px',
+    'padding-bottom': '25px' 
+  }
+
+  const bottomPadding = {
+    'padding-bottom': '15px'
+  }
+
     return (
       <div className="container margin-header">
-        <div className="hr-divider">
+        <div className="row">
+          <div className="col-md-12" style={videoBoxStyle} > 
+            <YouTube
+                videoId="VU2k4X1hsI4"
+                opts={opts}
+              />
+          </div>
+        </div>
+        <div className="row">
+        <div className="col-md-6">
+            <img className="giver-logo" src={giverLogo} />
+          </div>
+          <div className="col-md-6">
+            <GiverForm />
+          </div>
+        </div>
+        <div className="hr-divider" style={bottomPadding}>
           <h3 className="hr-divider-content hr-divider-heading">
             Quick stats
           </h3>
         </div>
-        <div className="row statcards">
+        <div className="row statcards" style={bottomPadding}>
           <div className="col-md-3">
             <div className="statcard statcard-primary p-4">
               <h3 className="statcard-number">{this.props.totalScore}</h3>
@@ -75,19 +101,7 @@ class HomePage extends React.Component {
             </div>
           </div>
         </div>
-        <hr />
-        <div className="row">
-          <div className="col-md-8 mb-4">
-            <YouTube
-                videoId="VU2k4X1hsI4"
-                opts={opts}
-              />
-          </div>
-          <div className="col-md-4">
-            <GiverForm />
-          </div>
-        </div>
-        <div className="hr-divider">
+        <div className="hr-divider" style={bottomPadding}>
           <h3 className="hr-divider-content hr-divider-heading">
             Map of Givers
           </h3>
@@ -98,8 +112,7 @@ class HomePage extends React.Component {
             Social
           </h3>
         </div>
-        <div id="curator-feed">
-            {/* <a href="https://curator.io" target="_blank" className="crt-logo crt-tag">Powered by Curator.io</a> */}
+        <div id="curator-feed" style={bottomPadding}>
         </div>
       </div>
     );
